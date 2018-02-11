@@ -75,7 +75,7 @@ class QuickPostEditor extends React.Component {
 
   getQuickPostData = () => {
     const currentPaths = this.props.location.pathname.split('/');
-    const busyTag = 'steemclassifieds';
+    const busyTag = 'steemkitties';
     const tag = currentPaths[2];
     const tags = [];
     const images = _.map(this.state.currentImages, image => image.src);
@@ -99,8 +99,8 @@ class QuickPostEditor extends React.Component {
     };
 
     const metaData = {
-      community: 'steemclassifieds',
-      app: `steemclassifieds/${version}`,
+      community: 'steemkitties',
+      app: `steemkitties/${version}`,
       format: 'markdown',
     };
 

@@ -195,8 +195,8 @@ class Write extends React.Component {
     if (this.state.isUpdating) data.isUpdating = this.state.isUpdating;
 
     let metaData = {
-      community: 'busy',
-      app: `busy/${version}`,
+      community: 'steemkitties',
+      app: `steemkitties/${version}`,
       format: 'markdown',
     };
 

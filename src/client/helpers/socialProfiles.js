@@ -1,4 +1,5 @@
 const socialTransformers = {
+  cryptokitties: id => `https://www.cryptokitties.co/profile/${id}`,
   facebook: id => `https://facebook.com/${id}`,
   twitter: id => `https://twitter.com/${id}`,
   youtube: id => `https://www.youtube.com/user/${id}`,
@@ -11,6 +12,7 @@ const socialTransformers = {
 export const transform = (socialId, id) => socialTransformers[socialId](id);
 
 export default [
+  { id: 'cryptokitties', icon: 'cryptokitties', color: '#8a3ab9', name: 'CryptoKitties' },
   { id: 'facebook', icon: 'facebook', color: '#3b5998', name: 'Facebook' },
   { id: 'twitter', icon: 'twitter', color: '#00aced', name: 'Twitter' },
   { id: 'youtube', icon: 'youtube', color: '#ff0202', name: 'YouTube' },

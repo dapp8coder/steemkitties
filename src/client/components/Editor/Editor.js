@@ -42,12 +42,12 @@ class Editor extends React.Component {
 
   static defaultProps = {
     title: '',
-    topics: [],
+    topics: ['steemkitties', 'meow'],
     body: '',
     reward: rewardsValues.half,
     upvote: true,
-    recentTopics: [],
-    popularTopics: [],
+    recentTopics: ['steemkitties'],
+    popularTopics: ['steemkitties'],
     loading: false,
     isUpdating: false,
     saving: false,

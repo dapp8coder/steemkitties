@@ -12,6 +12,23 @@
   <body>
     <div id="app"><!--server:html--></div>
     <!--server:scripts-->
+    <script
+  src="//code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en,Intl.~locale.zh,Intl.~locale.fr,Intl.~locale.de,Intl.~locale.ru,Intl.~locale.ko,Intl.~locale.nl"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/clairestovall/CryptoKittyCase/1.0.2/script.js"></script>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/clairestovall/CryptoKittyCase/1.0.2/stylesheet.css">
+ 
+  <script>
+    $(document).ready(function() {
+      
+      $('.Editor').html('<div id="cryptokitties"></div>')'
+      
+      const MY_ADDRESS = '0x519870e6cce87c4933981e91164e675a8b5a5b61';
+      $('#cryptokitties').cryptoCase(MY_ADDRESS);
+    });
+  </script>
+  
   </body>
 </html>

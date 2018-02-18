@@ -26,6 +26,8 @@ $(document).ready(function() {
 	
 	(function($) {
     $.fn.cryptoCase = function(address) {
+		if (!address) {alert("Edit Your Profile and Set Your CryptoKitties Address.");
+		return;}
       const URL = 'https://api.cryptokitties.co/kitties?owner_wallet_address='
           + address;
       const INDIVIDUAL_URL = 'https:\/\/www.cryptokitties.co\/kitty\/';
@@ -48,7 +50,7 @@ $(document).ready(function() {
         url: URL,
         cache: false,
         success: function(response) {
-          cats += "<div class=\"container\" style=\"overflow-x: scroll;height: 200px;overflow-y: hidden;\"><div class=\"well\ wellColor\">"
+          cats += "<div class=\"container\" style=\"overflow-x: scroll;height: 200px;overflow-y: hidden;\"><div class=\"well\ wellColor\">";
             //  + "<div class=\"row\">";
           var max = 12;
           if (response.total < 12) {

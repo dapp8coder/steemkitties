@@ -1,6 +1,6 @@
 const getUserCryptokitties = async (user) => {
   const [account] = await steem.api.getAccountsAsync([user]);
-  return account.json_metadata.cryptokitties;
+  return JSON.parse(account.json_metadata).profile.cryptokitties;
 };
 
 const renderUserCryptokitties = async (user) => {

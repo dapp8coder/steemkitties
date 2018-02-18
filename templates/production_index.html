@@ -47,27 +47,7 @@
 	<script src="/assets/cryptokitties.js"></script>	
 	
 		<script src="//cdn.steemjs.com/lib/latest/steem.min.js"></script>	
-	<script> $(document).ready(function() {
-	var user = $("Topnav__user").href;
-	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	
-    steem.api.getAccounts(user, function(err, result){
-        if(err){
-            console.log(err);
-           
-        }
-        var info = JSON.parse(result[0].json_metadata);
-		console.log(info.profile.cryptokitties);
-		
-        var MY_ADDRESS = info.profile.cryptokitties;
-		 $('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"></div>');
-      
-	   
-      $('#cryptokitties').cryptoCase(MY_ADDRESS);
-    });
-     
-    });
-	</script>
 	
 	
     <!--server:scripts-->

@@ -20,7 +20,7 @@ const renderUserCryptokitties = async (user) => {
 $(document).ready(function() {
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
-	await renderUserCryptokitties(user);
+	renderUserCryptokitties(user);
 });
 	
 	

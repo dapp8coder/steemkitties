@@ -1,23 +1,18 @@
+const getUserCryptokitties = async (user) => {
+  const [account] = await steem.api.getAccountsAsync([user]);
+  return account.profile.cryptokitties;
+};
+
+const renderUserCryptokitties = async (user) => {
+	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"></div>');  
+	$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
+};
+
 $(document).ready(function() {
 	var user = $("Topnav__user").href;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
-	
-    steem.api.getAccounts(user, function(err, result){
-        if(err){
-            console.log(err);
-           
-        }
-        var info = JSON.parse(result[0].json_metadata);
-		console.log(info.profile.cryptokitties);
-		
-        var MY_ADDRESS = info.profile.cryptokitties;
-		 $('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"></div>');
-      
-	   
-      $('#cryptokitties').cryptoCase(MY_ADDRESS);
-    });
-     
-    });
+	getUserCryptokitties(user);
+});
 	
 	
 	(function($) {

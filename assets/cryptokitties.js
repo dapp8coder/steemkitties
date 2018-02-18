@@ -12,8 +12,8 @@ const renderUserCryptokitties = async (user) => {
 	});	
 	
 	$('input[type=radio][name=kittie]').change(function() {
-		$('input[type=radio][name=kittie]').removeClass("glow");
-		$(this).addClass("glow");
+		$(".kittyCard").removeClass("glow");
+		$($(this).id.replace("input_", "")).addClass("glow");
     });
 };
 
@@ -48,8 +48,8 @@ $(document).ready(function() {
         url: URL,
         cache: false,
         success: function(response) {
-          cats += "<div class=\"container\"><div class=\"well\ wellColor\">"
-              + "<div class=\"row\">";
+          cats += "<div class=\"container\" style=\"overflow-x: scroll;height: 200px;overflow-y: hidden;\"><div class=\"well\ wellColor\">"
+            //  + "<div class=\"row\">";
           var max = 12;
           if (response.total < 12) {
             max = response.total;
@@ -59,32 +59,32 @@ $(document).ready(function() {
             var cat = response.kitties[i];
             var details = "";
             details += "<div class=\"textbox\" align=\"left\">"
-                + "<span class=\"kittyTextID\">Kitty #"
-                + cat.id + "<\/span><span class=\"details\"> &#xB7; Gen "
-                + cat.generation + "<\/span>";
-            if (cat.is_exclusive) {
+                + "<span class=\"kittyTextID\">
+                + cat.name + "<\/span>";
+            /*if (cat.is_exclusive) {
               details += "<span class=\"details\"> &#xB7; Exclusive<\/span>";
             } if (cat.is_fancy) {
               details += "<span class=\"details\"> &#xB7; Fancy<\/span>";
-            }
+            }*/
               details += "<\/div>";
-            if (i == 4 || i == 8) {
+           /* if (i == 4 || i == 8) {
               cats += "<div class=\"row\">";
-            }
+            }*/
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
                 + "<div class=\"kittyCard\" id=\"" + j + "\">"
 				+ "<input type=\"radio\" name=\"kittie\" value=\"" + cat.id + "\" id=\"input_" + j + "\">"
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\""
                 + i + "\"></div>" + "<div>" + details + "</div></div>";
-            if (i == 3 || i == 7 || i == 11) {
+           /* if (i == 3 || i == 7 || i == 11) {
               cats += "<\/div>";
-            }
+            }*/
             newColors[i] = COLORS[cat.color];
             newColors[j] = COLORS[cat.color];
             j++;
           }
           cats += "</div></div>";
+		  
           $(location).html(cats);
           for (i = 0; i < max; i++) {
             var change = "#" + i;

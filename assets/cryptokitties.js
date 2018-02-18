@@ -61,7 +61,7 @@ $(document).ready(function() {
             var cat = response.kitties[i];
             var details = "";
             details += "<div class=\"textbox\" align=\"left\">"
-                + "<span class=\"kittyTextID\">
+                + "<span class=\"kittyTextID\">"
                 + cat.name + "<\/span>";
             /*if (cat.is_exclusive) {
               details += "<span class=\"details\"> &#xB7; Exclusive<\/span>";

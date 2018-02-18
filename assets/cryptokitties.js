@@ -1,6 +1,6 @@
 const getUserCryptokitties = async (user) => {
   const [account] = await steem.api.getAccountsAsync([user]);
-  return account.profile.cryptokitties;
+  return account.json_metadata.cryptokitties;
 };
 
 const renderUserCryptokitties = async (user) => {
@@ -9,9 +9,9 @@ const renderUserCryptokitties = async (user) => {
 };
 
 $(document).ready(function() {
-	var user = $("Topnav__user").href;
+	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
-	getUserCryptokitties(user);
+	await renderUserCryptokitties(user);
 });
 	
 	

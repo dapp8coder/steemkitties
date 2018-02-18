@@ -6,6 +6,15 @@ const getUserCryptokitties = async (user) => {
 const renderUserCryptokitties = async (user) => {
 	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"></div>');  
 	$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
+	$(".kittyCard").click(function() {  //use a class, since your ID gets mangled
+		$("#input_"+$(this).id).prop("checked", true);
+		//$(this).addClass("glow");      //add the class to the clicked element
+	});	
+	
+	$('input[type=radio][name=kittie]').change(function() {
+		$('input[type=radio][name=kittie]').removeClass("glow");
+		$(this).addClass("glow");
+    });
 };
 
 $(document).ready(function() {
@@ -64,9 +73,10 @@ $(document).ready(function() {
             }
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
                 + "<div class=\"kittyCard\" id=\"" + j + "\">"
-                + "<a href=\"" + INDIVIDUAL_URL + cat.id + "\"><img class=\""
+				+ "<input type=\"radio\" name=\"kittie\" value=\"" + cat.id + "\" id=\"input_" + j + "\">"
+                + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\""
-                + i + "\"><\/a></div>" + "<div>" + details + "</div></div>";
+                + i + "\"></div>" + "<div>" + details + "</div></div>";
             if (i == 3 || i == 7 || i == 11) {
               cats += "<\/div>";
             }
@@ -88,4 +98,5 @@ $(document).ready(function() {
         }
       });
     };
+	
 }(jQuery));

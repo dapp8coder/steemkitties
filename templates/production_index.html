@@ -9,7 +9,43 @@
     <!--server:header-->
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<style>
-
+.Topnav__brand {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #f58e9c;
+    background-image: url(/images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 38px;
+}
+.topnav-layout .center{
+    width:calc(100% - 55px);
+    position:absolute;
+    display:none;
+    z-index:1
+}
+@media only screen and (min-width:768px){
+    .topnav-layout .center{
+        width: calc(100% - 690px);
+        position:static;
+        margin-left: 210px;
+        margin-right: 299px;
+        display:block;
+    }
+}
+@media only screen and (min-width:998px){
+    .topnav-layout .center{
+        width:calc(100% - 530px);
+        margin-left:220px
+    }
+}
+@media only screen and (min-width:1200px){
+    .topnav-layout .center{
+        width:calc(100% - 490px);
+        margin-left:200px
+    }
+}
 	.col-md-3 {
 		max-width: 220px;
 		float: left;
@@ -39,15 +75,19 @@
   padding-bottom: 5%;
 }
 
+.SidebarBlock {
+    border-radius: 5px;
+    background-color: #47b284;
+}
 	</style>
 	<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  src="//code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="app"><!--server:html--></div>
-	<script src="cryptokitties.js"></script>	
+	<script src="/cryptokitties.js"></script>	
 	
 		<script src="//cdn.steemjs.com/lib/latest/steem.min.js"></script>	
 	

@@ -21,6 +21,7 @@ console.log("#input_"+id);
 		$("#input_"+id).prop("checked", true);
 		$(this).addClass("glow");      //add the class to the clicked element
 	});	
+	
 	$('input[type=radio][name=kittie]').change(function() {
 	//	$(".kittyCard").removeClass("glow");
 	//	var id = $(this).id
@@ -61,7 +62,12 @@ $(document).ready(function() {
         url: URL,
         cache: true,
         success: function(response) {
-          cats += "<div class=\"container\" style=\"    overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
+          cats += "<h3>Start an Adventure</h3>"
+		  cats += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"kitties\"><span class=\"Editor__label\">"
+		  cats += "<span>Your CryptoKitties</span></span></label></div>"
+		 
+			
+		  cats += "<div class=\"container\" style=\"    overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
             //  + "<div class=\"row\">";
           
             max = response.total;

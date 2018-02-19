@@ -44,7 +44,7 @@ $(document).ready(function() {
 	
 	
 	
-	var jsonURL = "/backgrounds.json";
+	var jsonURL = "/backgrounds.json?v=1";
 	 var imgList= "";
  imgList += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">"
 		  imgList += "<span>Select a Background</span></span></label></div></div>"

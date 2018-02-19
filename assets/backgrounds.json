@@ -8,13 +8,13 @@
       },
       {
          "name": "Pepe Black Jeans",
-         "imgPath": "/images/backgrounds/bg2.png"
+         "imgPath": "/images/backgrounds/bg2.png",
 		 "top" : 50,
 		 "left" : 60
       },
       {
          "name": "Pepe Blue Jeans",
-         "imgPath": "/images/backgrounds/bg3.png"
+         "imgPath": "/images/backgrounds/bg3.png",
 		 "top" : 50,
 		 "left" : 60
       }

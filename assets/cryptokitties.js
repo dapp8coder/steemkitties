@@ -39,7 +39,7 @@ const renderUserCryptokitties = async (user) => {
 
 var cryptokittie = "";
 $(document).ready(function() {
-	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"><img src="/images/wait.gif" /></div><div id="backgrounds" class="ant-row ant-form-item"></div>'); 
+	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"><img src="/images/wait.gif" /></div><div id="backgrounds" class="ant-row ant-form-item"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'); 
 	
 	
 	
@@ -54,7 +54,7 @@ $(document).ready(function() {
       imgList += '<li><img src= "' + this.imgPath + '"></li>';
     });
    $('#backgrounds').append(imgList);
-  });
+ });
 
 	
 	
@@ -69,6 +69,7 @@ $(document).ready(function() {
 		console.log("#input_"+id);
 		cryptokittie = $("#input_"+id).val();
 		$("#input_"+id).prop("checked", true);
+		compileAdventure(imgArray[0],$("#image_"+id))
 		$(this).addClass("glow");      //add the class to the clicked element
 		Cookies.set('cryptokittie', cryptokittie);
 	});	
@@ -84,6 +85,38 @@ $(document).ready(function() {
     });
 	
 });
+	
+	
+(function($) {
+    $.fn.compileAdventure = function(bg, cryptokittieIMG) {
+	 var canvas = document.getElementById('canvas');
+    var ctx    = canvas.getContext('2d');
+    
+        var bg = document.getElementById(bg);
+    
+    var DOMURL = window.URL || window.webkitURL || window;
+    var imgBG = new Image();
+    imgBG.src = bg.src;
+   // var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+    //var url = DOMURL.createObjectURL(svg);
+    
+    imgBG.onload = function () {
+      ctx.drawImage(imgBG, 0, 0);
+     // DOMURL.revokeObjectURL(url);
+    }
+    var img = new Image();
+    img.src = cryptokittieIMG.src;
+   // var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+    //var url = DOMURL.createObjectURL(svg);
+    
+    img.onload = function () {
+      ctx.drawImage(img, 400, 370, 300, 300);
+      //DOMURL.revokeObjectURL(url);
+    }
+	};
+}(jQuery));	
+	
+	
 	
 	
 	

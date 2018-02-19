@@ -84,7 +84,7 @@ $(document).ready(function() {
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	
-		$('form.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
+		$('form.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"><img id="img_canvas" src="/images/backgrounds/bg1.png" width="800" height="500" /></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 
 	
 	
@@ -122,11 +122,25 @@ $(".kittyCard").click(function() {
 	}
 	 tid = setTimeout(attachEventSelectors, 1000);	
 }
-
+var getCanvasImage = function(image) {
+ 
+    var imgWidth = 800,
+        imgHeight = 500;
+ 
+    //define canvas image
+    var canvas = document.createElement('canvas');
+    canvas.width = imgWidth;
+    canvas.height = imgHeight;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(image, imgWidth, imgHeight);
+         
+    //convert canvas to jpeg URL
+    return canvas.toDataURL("image/jpeg");
+}
 	
 	
 function compileAdventure(bg, cryptokittieIMG) {
-	 var canvas = $("#canvas")[0];
+	 var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d');
     
         //var bg = document.getElementById(bg);
@@ -150,6 +164,7 @@ function compileAdventure(bg, cryptokittieIMG) {
       ctx.drawImage(img, 400, 370, 300, 300);
       //DOMURL.revokeObjectURL(url);
     }
+	$('#img_canvas').src = canvas.toDataURL("image/jpeg");
 }
 
 function finishStory() {

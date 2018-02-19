@@ -83,7 +83,7 @@ $(document).ready(function() {
 		console.log("#input_"+id);
 		cryptokittie = $("#input_"+id).val();
 		$("#input_"+id).prop("checked", true);
-		compileAdventure(imgArray[0],$("#image_"+id))
+		compileAdventure(imgArray[0],$("#image_"+id));
 		$(this).addClass("glow");      //add the class to the clicked element
 		Cookies.set('cryptokittie', cryptokittie);
 	});	
@@ -94,7 +94,7 @@ $(document).ready(function() {
 	
 	$('input[name=kittie]').change(function() {
 		$(".kittyCard").removeClass("glow");
-		var id = $(this).id
+		var id = $(this).id;
 		$(id.replace("input_", "")).addClass("glow");
     });
 	

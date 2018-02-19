@@ -39,7 +39,7 @@ const renderUserCryptokitties = async (user) => {
 
 var cryptokittie = "";
 $(document).ready(function() {
-	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'); 
+	$('.Editor').append('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'); 
 	
 	
 	
@@ -104,10 +104,9 @@ $(document).ready(function() {
 
 	
 	
-(function($) {
-    $.fn.compileAdventure = function(bg, cryptokittieIMG) {
+function compileAdventure(bg, cryptokittieIMG) {
 	 var canvas = document.getElementById('canvas');
-    var ctx    = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
     
         //var bg = document.getElementById(bg);
     
@@ -130,8 +129,8 @@ $(document).ready(function() {
       ctx.drawImage(img, 400, 370, 300, 300);
       //DOMURL.revokeObjectURL(url);
     }
-	};
-}(jQuery));	
+}
+
 	
 	
 	

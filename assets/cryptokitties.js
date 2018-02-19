@@ -45,14 +45,27 @@ $(document).ready(function() {
 	
 	
 	var jsonURL = "/backgrounds.json";
-
+	 var imgList= "";
+ imgList += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"kitties\"><span class=\"Editor__label\">"
+		  imgList += "<span>Select a Background</span></span></label></div>"
+		 
+			
+		  imgList += "<div class=\"container\" style=\"    overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
+         
   $.getJSON(jsonURL, function (json)
 
   {
-    var imgList= "";
+   var j = 0;
     $.each(json.backgrounds, function () {
-      imgList += '<li><img src= "' + this.imgPath + '"></li>';
+	 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
+                + "<div class=\"backgroundCard\" id=\"" + j + "\">"				
+                + "<img class=\""
+                + "image img-responsive\" src=" + this.imgPath + " id=\"image_"
+                + j + "\"></div></div>";
+     
     });
+	 imgList += "</div></div>";
+	
    $('#backgrounds').append(imgList);
  });
 
@@ -62,6 +75,7 @@ $(document).ready(function() {
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	renderUserCryptokitties(user);
+	
 	cryptokittie = Cookies.get('cryptokittie'); 
 	$(".kittyCard").click(function() {  
 		$(".kittyCard").removeClass("glow");
@@ -85,6 +99,9 @@ $(document).ready(function() {
     });
 	
 });
+
+
+
 	
 	
 (function($) {

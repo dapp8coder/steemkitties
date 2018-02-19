@@ -56,20 +56,19 @@ $(document).ready(function() {
 	$.getJSON(jsonURL, function (json)
 
   {
-   var j = 0;
+ 
     $.each(json.backgrounds, function () {
 	 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"backgroundCard\" id=\"" + j + "\">"				
+                + "<div class=\"backgroundCard\">"				
                 + "<img class=\""
-                + "image img-responsive\" src=" + this.imgPath + " id=\"image_"
-                + j + "\" /></div></div>";
+                + "image img-responsive\" src=\"" + this.imgPath + ""\" /></div></div>";
      
     });
-	 imgList += "</div></div>";
+	
 	
   
  });
-
+ imgList += "</div></div>";
 	
 	
 	var user = $(".Topnav__user__username")[0].outerText;

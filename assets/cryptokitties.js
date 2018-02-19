@@ -51,7 +51,7 @@ $(document).ready(function() {
 	imgList += "<span>Select a Background</span></span></label></div>";
 
 
-	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
+	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 100px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
 
 	
 	
@@ -194,7 +194,7 @@ function finishStory() {
 		  cats += "<span>Select a CryptoKittie</span></span></label></div>"
 		 
 			
-		  cats += "<div class=\"container\" style=\" padding-top: 14px;    overflow-x: scroll;   height: 100px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
+		  cats += "<div class=\"container\" style=\" padding-top: 14px;    overflow-x: scroll;   height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
             //  + "<div class=\"row\">";
           
             max = response.total;

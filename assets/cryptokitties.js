@@ -72,7 +72,7 @@ $(document).ready(function() {
                 + "image img-responsive\" src=\"" + entry.imgPath + "\" /></div></div>";
    
    // console.log(entry);
-});
+
 	
 	
 	

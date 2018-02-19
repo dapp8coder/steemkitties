@@ -39,20 +39,21 @@ const renderUserCryptokitties = async (user) => {
 
 var cryptokittie = "";
 $(document).ready(function() {
-	$('.Editor').append('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'); 
+	centerHTML = $('.center').innterHTML;
+	$('.center').html('<img src="/images/wait.gif" />');
 	
 	
 	
 	
 	var jsonURL = "/backgrounds.json?v=1";
-	 var imgList= "";
- imgList += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">"
-		  imgList += "<span>Select a Background</span></span></label></div></div>"
-		 
-			
-		  imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
-         
-  $.getJSON(jsonURL, function (json)
+	var imgList= "";
+	imgList += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">"
+	imgList += "<span>Select a Background</span></span></label></div></div>"
+
+
+	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
+
+	$.getJSON(jsonURL, function (json)
 
   {
    var j = 0;
@@ -66,14 +67,19 @@ $(document).ready(function() {
     });
 	 imgList += "</div></div>";
 	
-   $('#backgrounds').append(imgList);
+  
  });
 
 	
 	
-	
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
+	
+		$('.center').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'+centerHTML); 
+
+	 $('#backgrounds').append(imgList);
+	
+	
 	renderUserCryptokitties(user);
 	
 	cryptokittie = Cookies.get('cryptokittie'); 

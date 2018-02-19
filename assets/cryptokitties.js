@@ -53,7 +53,8 @@ $(document).ready(function() {
 
 	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
 
-	$.getJSON(jsonURL, function (json)
+	
+	/*$.getJSON(jsonURL, function (json)
 
   {
  
@@ -63,7 +64,16 @@ $(document).ready(function() {
                 + "<img class=\""
                 + "image img-responsive\" src=\"" + this.imgPath + "\" /></div></div>";
      
-    });
+    });*/
+	imgArray.forEach(function(entry) {
+		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
+                + "<div class=\"backgroundCard\">"				
+                + "<img class=\""
+                + "image img-responsive\" src=\"" + entry.imgPath + "\" /></div></div>";
+   
+   // console.log(entry);
+});
+	
 	
 	
   

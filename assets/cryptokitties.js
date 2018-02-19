@@ -47,8 +47,8 @@ $(document).ready(function() {
 	
 	var jsonURL = "/backgrounds.json?v=1";
 	var imgList= "";
-	imgList += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">"
-	imgList += "<span>Select a Background</span></span></label></div></div>"
+	imgList += "<div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">"
+	imgList += "<span>Select a Background</span></span></label></div>"
 
 
 	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
@@ -62,7 +62,7 @@ $(document).ready(function() {
                 + "<div class=\"backgroundCard\" id=\"" + j + "\">"				
                 + "<img class=\""
                 + "image img-responsive\" src=" + this.imgPath + " id=\"image_"
-                + j + "\"></div></div>";
+                + j + "\" /></div></div>";
      
     });
 	 imgList += "</div></div>";
@@ -75,9 +75,9 @@ $(document).ready(function() {
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	
-		$('form.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'+centerHTML); 
+		$('form.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'+centerHTML); 
 
-	 $('#backgrounds').append(imgList);
+	
 	
 	
 	renderUserCryptokitties(user);

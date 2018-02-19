@@ -50,7 +50,7 @@ $(document).ready(function() {
         url: URL,
         cache: true,
         success: function(response) {
-          cats += "<div class=\"container\" style=\"overflow-x: scroll;height: 200px;overflow-y: hidden;\"><div class=\"well\ wellColor\">";
+          cats += "<div class=\"container\" style=\"    overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
             //  + "<div class=\"row\">";
           
             max = response.total;
@@ -75,7 +75,7 @@ $(document).ready(function() {
                 + "<div class=\"kittyCard\" id=\"" + i + "\">"
 				+ "<input type=\"radio\" name=\"kittie\" value=\"" + cat.id + "\" id=\"input_" + i + "\">"
                 + "<img class=\""
-                + "image img-responsive\" src=" + cat.image_url + " id=\""
+                + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
                 + i + "\"></div>" + "<div>" + details + "</div></div>";
            /* if (i == 3 || i == 7 || i == 11) {
               cats += "<\/div>";

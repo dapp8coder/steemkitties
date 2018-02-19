@@ -13,15 +13,18 @@ const renderUserCryptokitties = async (user) => {
 	}else{
 		$('#cryptokitties').cryptoCase(cryptokitties);
 	}
-	$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
+	//$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
 	$(".kittyCard").click(function() {  
-		$("#input_"+$(this).id).prop("checked", true);
+		$(".kittyCard").removeClass("glow");
+		var id = $(this).id;
+console.log("#input_"+id);
+		$("#input_"+id).prop("checked", true);
 		$(this).addClass("glow");      //add the class to the clicked element
 	});	
-	
 	$('input[type=radio][name=kittie]').change(function() {
-		$(".kittyCard").removeClass("glow");
-		$($(this).id.replace("input_", "")).addClass("glow");
+	//	$(".kittyCard").removeClass("glow");
+	//	var id = $(this).id
+	//	$(id.replace("input_", "")).addClass("glow");
     });
 };
 

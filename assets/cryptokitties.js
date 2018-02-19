@@ -1,3 +1,28 @@
+var imgArray = new Array();
+
+imgArray[0] = new Image();
+imgArray[0].src = '/images/backgrounds/bg1.png';
+
+
+imgArray[1] = new Image();
+imgArray[1].src = '/images/backgrounds/bg2.png';
+
+imgArray[2] = new Image();
+imgArray[2].src = '/images/backgrounds/bg3.png';
+
+imgArray[3] = new Image();
+imgArray[3].src = '/images/backgrounds/bg4.png';
+
+imgArray[4] = new Image();
+imgArray[4].src = '/images/backgrounds/bg5.png';
+
+imgArray[5] = new Image();
+imgArray[5].src = '/images/backgrounds/bg6.png';
+
+
+
+
+
 const getUserCryptokitties = async (user) => {
   const [account] = await steem.api.getAccountsAsync([user]);
   var cryptokitties = JSON.parse(account.json_metadata).profile.cryptokitties
@@ -18,6 +43,25 @@ const renderUserCryptokitties = async (user) => {
 var cryptokittie = "";
 $(document).ready(function() {
 	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"><img src="/wait.gif" /></div>'); 
+	
+	$('.Editor').html('<div id="backgrounds" class="ant-row ant-form-item"><img src="/wait.gif" /></div>')
+	
+	
+	var jsonURL = "/backgrounds.json";
+
+  $.getJSON(jsonURL, function (json)
+
+  {
+    var imgList= "";
+    $.each(json.products, function () {
+      imgList += '<li><img src= "' + this.imgPath + '"></li>';
+    });
+   $('#backgrounds').append(imgList);
+  });
+
+	
+	
+	
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	renderUserCryptokitties(user);
@@ -43,6 +87,7 @@ $(document).ready(function() {
     });
 	
 });
+	
 	
 	
 	(function($) {
@@ -71,9 +116,9 @@ $(document).ready(function() {
         url: URL,
         cache: true,
         success: function(response) {
-          cats += "<h3>Start an Adventure</h3>"
+          cats += "<h2>Begin your adventure</h2>"
 		  cats += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"kitties\"><span class=\"Editor__label\">"
-		  cats += "<span>Your CryptoKitties</span></span></label></div>"
+		  cats += "<span>Select a CryptoKittie</span></span></label></div>"
 		 
 			
 		  cats += "<div class=\"container\" style=\"    overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";

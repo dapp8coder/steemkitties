@@ -6,33 +6,42 @@ const getUserCryptokitties = async (user) => {
 };
 
 const renderUserCryptokitties = async (user) => {
-	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"></div>'); 
 	var cryptokitties = Cookies.get('cryptokitties'); 
 	if(!cryptokitties){
 		$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
 	}else{
 		$('#cryptokitties').cryptoCase(cryptokitties);
 	}
-	//$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
-	$(".kittyCard").click(function() {  
-		$(".kittyCard").removeClass("glow");
-		var id = $(this).id;
-console.log("#input_"+id);
-		$("#input_"+id).prop("checked", true);
-		$(this).addClass("glow");      //add the class to the clicked element
-	});	
 	
-	$('input[type=radio][name=kittie]').change(function() {
-	//	$(".kittyCard").removeClass("glow");
-	//	var id = $(this).id
-	//	$(id.replace("input_", "")).addClass("glow");
-    });
 };
 
+var cryptokittie = "";
 $(document).ready(function() {
+	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"><img src="/wait.gif" /></div>'); 
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	renderUserCryptokitties(user);
+	cryptokittie = Cookies.get('cryptokittie'); 
+	$(".kittyCard").click(function() {  
+		$(".kittyCard").removeClass("glow");
+		var id = $(this).id;
+		console.log("#input_"+id);
+		cryptokittie = $("#input_"+id).val();
+		$("#input_"+id).prop("checked", true);
+		$(this).addClass("glow");      //add the class to the clicked element
+		Cookies.set('cryptokittie', cryptokittie);
+	});	
+	if (cryptokittie){
+		$("input[value='kittie']").prop("checked", true);
+	}
+		
+	
+	$('input[name=kittie]').change(function() {
+		$(".kittyCard").removeClass("glow");
+		var id = $(this).id
+		$(id.replace("input_", "")).addClass("glow");
+    });
+	
 });
 	
 	

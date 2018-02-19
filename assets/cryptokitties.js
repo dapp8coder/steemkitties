@@ -61,7 +61,7 @@ $(document).ready(function() {
 	 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
                 + "<div class=\"backgroundCard\">"				
                 + "<img class=\""
-                + "image img-responsive\" src=\"" + this.imgPath + ""\" /></div></div>";
+                + "image img-responsive\" src=\"" + this.imgPath + "\" /></div></div>";
      
     });
 	

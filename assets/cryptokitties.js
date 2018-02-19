@@ -39,8 +39,8 @@ const renderUserCryptokitties = async (user) => {
 
 var cryptokittie = "";
 $(document).ready(function() {
-	centerHTML = $('.center').innterHTML;
-	$('.center').html('<img src="/images/wait.gif" />');
+	centerHTML = $('form.Editor').innterHTML;
+	$('form.Editor').html('<img src="/images/wait.gif" />');
 	
 	
 	
@@ -75,15 +75,22 @@ $(document).ready(function() {
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	
-		$('.center').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'+centerHTML); 
+		$('form.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'+centerHTML); 
 
 	 $('#backgrounds').append(imgList);
 	
 	
 	renderUserCryptokitties(user);
 	
-	cryptokittie = Cookies.get('cryptokittie'); 
-	$(".kittyCard").click(function() {  
+	//var tid = setTimeout(attachEventSelectors, 2000);
+
+	attachEventSelectors();
+	
+	
+});
+
+function attachEventSelectors(){
+$(".kittyCard").click(function() {  
 		$(".kittyCard").removeClass("glow");
 		var id = $(this).id;
 		console.log("#input_"+id);
@@ -93,9 +100,6 @@ $(document).ready(function() {
 		$(this).addClass("glow");      //add the class to the clicked element
 		Cookies.set('cryptokittie', cryptokittie);
 	});	
-	if (cryptokittie){
-		$("input[value='kittie']").prop("checked", true);
-	}
 		
 	
 	$('input[name=kittie]').change(function() {
@@ -103,10 +107,12 @@ $(document).ready(function() {
 		var id = $(this).id;
 		$(id.replace("input_", "")).addClass("glow");
     });
-	
-});
-
-
+	cryptokittie = Cookies.get('cryptokittie'); 
+	if (cryptokittie){
+		$("input[value='kittie']").prop("checked", true);
+	}
+	 tid = setTimeout(attachEventSelectors, 1000);	
+}
 
 	
 	

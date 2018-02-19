@@ -16,9 +16,6 @@ imgArray[3].src = '/images/backgrounds/bg4.png';
 imgArray[4] = new Image();
 imgArray[4].src = '/images/backgrounds/bg5.png';
 
-imgArray[5] = new Image();
-imgArray[5].src = '/images/backgrounds/bg6.png';
-
 
 
 
@@ -42,9 +39,9 @@ const renderUserCryptokitties = async (user) => {
 
 var cryptokittie = "";
 $(document).ready(function() {
-	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"><img src="/wait.gif" /></div>'); 
+	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"><img src="/images/wait.gif" /></div>'); 
 	
-	$('.Editor').html('<div id="backgrounds" class="ant-row ant-form-item"><img src="/wait.gif" /></div>')
+	$('.Editor').html('<div id="backgrounds" class="ant-row ant-form-item"><img src="/images/wait.gif" /></div>')
 	
 	
 	var jsonURL = "/backgrounds.json";

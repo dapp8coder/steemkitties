@@ -103,7 +103,7 @@ $(".kittyCard").click(function() {
 	
 	$('input[name=kittie]').change(function() {
 		$(".kittyCard").removeClass("glow");
-		var id = $(this).id;
+		var id = this.id;
 		$(id.replace("input_", "")).addClass("glow");
     });
 	cryptokittie = Cookies.get('cryptokittie'); 
@@ -116,7 +116,7 @@ $(".kittyCard").click(function() {
 	
 	
 function compileAdventure(bg, cryptokittieIMG) {
-	 var canvas = $('#canvas');
+	 var canvas = $("#canvas")[0];
     var ctx = canvas.getContext('2d');
     
         //var bg = document.getElementById(bg);
@@ -142,9 +142,17 @@ function compileAdventure(bg, cryptokittieIMG) {
     }
 }
 
+function finishStory() {
+		
+	imagesHTML = $('form.Editor').innterHTML;
+	$('form.Editor').html('<img src="/images/wait.gif" /><div style="display:none;">'+imagesHTML+'</div>');
+	 var canvas = $('#canvas');
+    var ctx = canvas.getContext('2d');
+    
 	
+	$('form.Editor').html(writeHTML);
 	
-	
+}
 	
 	
 	(function($) {

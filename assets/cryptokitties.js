@@ -1,14 +1,22 @@
 const getUserCryptokitties = async (user) => {
   const [account] = await steem.api.getAccountsAsync([user]);
-  return JSON.parse(account.json_metadata).profile.cryptokitties;
+  var cryptokitties = JSON.parse(account.json_metadata).profile.cryptokitties
+  Cookies.set('cryptokitties', cryptokitties);
+  return cryptokitties;
 };
 
 const renderUserCryptokitties = async (user) => {
-	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"></div>');  
+	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"></div>'); 
+	var cryptokitties = Cookies.get('cryptokitties'); 
+	if(!cryptokitties){
+		$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
+	}else{
+		$('#cryptokitties').cryptoCase(cryptokitties);
+	}
 	$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
-	$(".kittyCard").click(function() {  //use a class, since your ID gets mangled
+	$(".kittyCard").click(function() {  
 		$("#input_"+$(this).id).prop("checked", true);
-		//$(this).addClass("glow");      //add the class to the clicked element
+		$(this).addClass("glow");      //add the class to the clicked element
 	});	
 	
 	$('input[type=radio][name=kittie]').change(function() {

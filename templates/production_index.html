@@ -56,17 +56,16 @@
     }
 }
 .col-md-3 {
-    max-width: 220px;
     float: left;
-    margin: 4px;
+    width: 100px;
 }
 
 .kittyCard {
     margin-top: 5%;
     margin-bottom: 3%;
-    margin-left: -7%;
-    margin-right: -7%;
-    max-width: 200px;
+    margin-left: 3%;
+    margin-right: 3%;
+ 
 }
 .wellColor {
   background-color: white !important;
@@ -102,6 +101,9 @@
   animation: glowing 5000ms infinite;
 }
 
+.kittyCard input[type=radio] {
+  /* display:none;*/
+}
 
 	</style>
 	<script
@@ -111,7 +113,7 @@
   </head>
   <body>
     <div id="app"><!--server:html--></div>
-	<script src="/cryptokitties.js?v=28"></script>	
+	<script src="/cryptokitties.js?v=29"></script>	
 	
 		<script src="//cdn.steemjs.com/lib/latest/steem.min.js"></script>	
 	

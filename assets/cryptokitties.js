@@ -48,14 +48,13 @@ $(document).ready(function() {
       var cats = "";
       $.ajax({
         url: URL,
-        cache: false,
+        cache: true,
         success: function(response) {
           cats += "<div class=\"container\" style=\"overflow-x: scroll;height: 200px;overflow-y: hidden;\"><div class=\"well\ wellColor\">";
             //  + "<div class=\"row\">";
-          var max = 12;
-          if (response.total < 12) {
+          
             max = response.total;
-          };
+         console.log(max);
           var j = max;
           for (i = 0; i < max; i++) {
             var cat = response.kitties[i];
@@ -73,8 +72,8 @@ $(document).ready(function() {
               cats += "<div class=\"row\">";
             }*/
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"kittyCard\" id=\"" + j + "\">"
-				+ "<input type=\"radio\" name=\"kittie\" value=\"" + cat.id + "\" id=\"input_" + j + "\">"
+                + "<div class=\"kittyCard\" id=\"" + i + "\">"
+				+ "<input type=\"radio\" name=\"kittie\" value=\"" + cat.id + "\" id=\"input_" + i + "\">"
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\""
                 + i + "\"></div>" + "<div>" + details + "</div></div>";

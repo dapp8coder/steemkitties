@@ -53,7 +53,7 @@ $(document).ready(function() {
 
   {
     var imgList= "";
-    $.each(json.products, function () {
+    $.each(json.backgrounds, function () {
       imgList += '<li><img src= "' + this.imgPath + '"></li>';
     });
    $('#backgrounds').append(imgList);

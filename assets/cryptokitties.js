@@ -101,7 +101,7 @@ $(document).ready(function() {
 function attachEventSelectors(){
 $(".kittyCard").click(function() {  
 		$(".kittyCard").removeClass("glow");
-		var id = $(this).id;
+		var id = this.id;
 		console.log("#input_"+id);
 		cryptokittie = $("#input_"+id).val();
 		$("#input_"+id).prop("checked", true);

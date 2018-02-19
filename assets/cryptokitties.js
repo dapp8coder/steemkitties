@@ -47,37 +47,20 @@ $(document).ready(function() {
 	
 	var jsonURL = "/backgrounds.json?v=1";
 	var imgList= "";
-	imgList += "<div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">"
-	imgList += "<span>Select a Background</span></span></label></div>"
+	imgList += "<div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">";
+	imgList += "<span>Select a Background</span></span></label></div>";
 
 
 	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
 
 	
-	/*$.getJSON(jsonURL, function (json)
-
-  {
- 
-    $.each(json.backgrounds, function () {
-	 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"backgroundCard\">"				
-                + "<img class=\""
-                + "image img-responsive\" src=\"" + this.imgPath + "\" /></div></div>";
-     
-    });*/
+	
 	imgArray.forEach(function(entry) {
 		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
                 + "<div class=\"backgroundCard\">"				
                 + "<img class=\""
                 + "image img-responsive\" src=\"" + entry.imgPath + "\" /></div></div>";
-   
-   // console.log(entry);
-
-	
-	
-	
-  
- });
+	});
  imgList += "</div></div>";
 	
 	

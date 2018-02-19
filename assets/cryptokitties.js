@@ -39,15 +39,15 @@ const renderUserCryptokitties = async (user) => {
 
 var cryptokittie = "";
 $(document).ready(function() {
-	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item"><img src="/images/wait.gif" /></div><div id="backgrounds" class="ant-row ant-form-item"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'); 
+	$('.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"><canvas id="canvas" width="800" height="500"></canvas></div>'); 
 	
 	
 	
 	
 	var jsonURL = "/backgrounds.json";
 	 var imgList= "";
- imgList += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"kitties\"><span class=\"Editor__label\">"
-		  imgList += "<span>Select a Background</span></span></label></div>"
+ imgList += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">"
+		  imgList += "<span>Select a Background</span></span></label></div></div>"
 		 
 			
 		  imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
@@ -163,7 +163,7 @@ $(document).ready(function() {
         url: URL,
         cache: true,
         success: function(response) {
-          cats += "<h2>Begin your adventure</h2>"
+          cats += "<h2>Begin your adventure...</h2>"
 		  cats += "<div class=\"ant-row ant-form-item\"><div class=\"ant-form-item-label\"><label for=\"kitties\"><span class=\"Editor__label\">"
 		  cats += "<span>Select a CryptoKittie</span></span></label></div>"
 		 

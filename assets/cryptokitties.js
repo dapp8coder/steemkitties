@@ -38,45 +38,41 @@ const renderUserCryptokitties = async (user) => {
 };
 
 var cryptokittie = "";
-$(document).ready(function() {
-	writeHTML = $('form.Editor').innterHTML;
+var writeHTML = "";
+
+function adventureForm(){
+writeHTML = $('form.Editor').innterHTML;
 	$('form.Editor').html('<img src="/images/wait.gif" />');
-	
-	
-	
-	
+		
 	var jsonURL = "/backgrounds.json?v=1";
 	var imgList= "";
 	imgList += "<div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">";
 	imgList += "<span>Select a Background</span></span></label></div>";
-
-
-	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 100px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
-
-	
-	
+	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 100px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";	
 	imgArray.forEach(function(entry) {
 		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
                 + "<div class=\"backgroundCard\">"				
                 + "<img class=\""
                 + "image img-responsive\" src=\"" + entry.src + "\" /></div></div>";
 	});
- imgList += "</div></div>";
-	
+	imgList += "</div></div>";
 	
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	
-		$('form.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"><img id="img_canvas" src="/images/backgrounds/bg1.png" width="800" height="500" /></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
+	$('form.Editor').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"><img id="img_canvas" src="/images/backgrounds/bg1.png" width="800" height="500" /></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 
-	
-	
-	
-	renderUserCryptokitties(user);
-	
-	//var tid = setTimeout(attachEventSelectors, 2000);
+	renderUserCryptokitties(user);	
+	tid = setTimeout(attachEventSelectors, 1000);
+}
 
-	attachEventSelectors();
+
+$(document).ready(function() {
+	
+	
+	var tid0 = setTimeout(adventureForm, 1000);
+ 
+	//attachEventSelectors();
 	
 	
 });
@@ -103,7 +99,7 @@ $(".kittyCard").click(function() {
 	if (cryptokittie){
 		$("input[value='kittie']").prop("checked", true);
 	}
-	 tid = setTimeout(attachEventSelectors, 1000);	
+		
 }
 var getCanvasImage = function(image) {
  

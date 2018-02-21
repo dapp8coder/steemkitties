@@ -86,11 +86,14 @@ class Editor extends React.Component {
     this.throttledUpdate = this.throttledUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+ //super(props);
+    this.state = { hasMounted: false };
   }
 
   componentDidMount() {
     this.setValues(this.props);
-
+  this.setState({ hasMounted: true });
     // eslint-disable-next-line react/no-find-dom-node
     const select = ReactDOM.findDOMNode(this.select);
     if (select) {
@@ -183,10 +186,14 @@ class Editor extends React.Component {
     const { words, minutes } = readingTime(bodyHTML);
 
     return (
+	<div>
+	<div class="Editor0">
+ {this.state.hasMounted && <p>This text only appears after mounting.</p>}
+	</div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>
           <title>
-            {intl.formatMessage({ id: 'write_post', defaultMessage: 'Write post' })} - Busy
+            {intl.formatMessage({ id: 'write_post', defaultMessage: 'Write post' })} - SteemKitties
           </title>
         </Helmet>
         <Form.Item
@@ -387,6 +394,7 @@ class Editor extends React.Component {
           </div>
         </div>
       </Form>
+	</div>
     );
   }
 }

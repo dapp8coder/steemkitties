@@ -64,7 +64,7 @@ function adventureForm(){
 	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"><img id="img_canvas" src="/images/backgrounds/bg1.png" width="800" height="500" /></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 
 	renderUserCryptokitties(user);	
-	tid = setTimeout(attachEventSelectors, 1000);
+	tid = setTimeout(attachEventSelectors, 2000);
 }
 
 

@@ -41,9 +41,9 @@ var cryptokittie = "";
 var writeHTML = "";
 
 function adventureForm(){
-$('.Editor').hide();
-
-	$('.Editor0').show().html('<img src="/images/wait.gif" />');
+	$('.Editor0').html('<img src="/images/wait.gif" />');
+	$('.Editor').hide();
+	$('.Editor0').show();
 		
 	var jsonURL = "/backgrounds.json?v=1";
 	var imgList= "";
@@ -149,14 +149,16 @@ function compileAdventure(bg, cryptokittieIMG) {
 
 function finishStory() {
 		
-	imagesHTML = $('form.Editor').innterHTML;
-	$('form.Editor').html('<img src="/images/wait.gif" /><div style="display:none;">'+imagesHTML+'</div>');
+
+	
+	//$('form.Editor').html('<img src="/images/wait.gif" /><div style="display:none;">'+imagesHTML+'</div>');
 	 var canvas = $('#canvas');
     var ctx = canvas.getContext('2d');
     
 	
-	$('form.Editor').html(writeHTML);
 	
+		$('.Editor0').hide();
+		$('.Editor').show();
 }
 	
 	

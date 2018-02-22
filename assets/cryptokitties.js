@@ -40,8 +40,7 @@ var cryptokittie = "";
 var writeHTML = "";
 
 function adventureForm(){
-	$('.Editor0').html('<img src="/images/wait.gif" /><h2>Meow, Please wait...</h2>');
-	$('.Editor0').show();
+
 		
 	var jsonURL = "/backgrounds.json?v=1";
 	var imgList= "";
@@ -50,7 +49,7 @@ function adventureForm(){
 	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 120px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";	
 	imgArray.forEach(function(entry) {
 		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"backgroundCard\">"				
+                + "<div class=\"backgroundCard\" onclick=\"BackgroundClick();\">"				
                 + "<img class=\""
                 + "image img-responsive\" src=\"" + entry.src + "\" /></div></div>";
 	});
@@ -70,62 +69,56 @@ function adventureForm(){
 
 $(document).ready(function() {
 	//$('.Editor').hide();
-	
+		$('.Editor0').html('<img src="/images/wait.gif" /><h2>Meow, Please wait...</h2>');
+	$('.Editor0').show();
 	var tid0 = setTimeout(adventureForm, 500);
  
-	setTimeout(attachEventSelectors(), 3000);
 	
-	setTimeout(attachEventSelectors(), 4000);
 });
 
-function attachEventSelectors(){
-	$(".kittyCard").unbind( "click" );
-$(".kittyCard").click(function() {  
+
+
+function KittieClick(){
+
 		$(".kittyCard").removeClass("glow");
 		var id = this.id;
 		
-		
 		$(this).addClass("glow");      //add the class to the clicked element
-		compileAdventure(imgArray[0],$("#image_"+id)[0]);
-		
-		
+		if(!Cookies.get('background')){
+			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src);
+		}
 		Cookies.set('id', id);
-	});	
-		
-	
-	$(".backgroundCard").unbind( "click" );
-	
-	$(".backgroundCard").click(function() {  
+}	
+
+function BackgroundClick(){
 		$(".backgroundCard").removeClass("glow");
 		var background = $(this).children('img').src;
 		id = Cookies.get('id'); 
 		$(this).addClass("glow");      //add the class to the clicked element
-		compileAdventure($(this).children('img'),$("#image_"+id)[0]);
-		
+		if(!Cookies.get('id')){
+			compileAdventure(background,$("#image_"+id)[0].src);
+		}
 		Cookies.set('background', background);
-	});	
-		//setTimeout(attachEventSelectors(), 1000);	
-}
 
-	
-	
+}	
 function compileAdventure(bg, cryptokittieIMG) {
 	 var canvas = document.createElement('canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
-	
+	canvas.style.width = 800;
+	 canvas.style.height = 600;
 	  $('#previewadventure').replaceWith(canvas);
 	var ctx = canvas.getContext('2d');
       
     var DOMURL = window.URL || window.webkitURL || window;
     var imgBG = new Image();
-    imgBG.src = bg.src;
+    imgBG.src = bg;
     
     imgBG.onload = function () {
       ctx.drawImage(imgBG, 0, 0, 800, 600);
     }
     var img = new Image();
-    img.src = cryptokittieIMG.src;
+    img.src = cryptokittieIMG;
     
     img.onload = function () {
       ctx.drawImage(img, 350, 270, 300, 300);
@@ -214,8 +207,7 @@ function finishStory() {
               cats += "<div class=\"row\">";
             }*/
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"kittyCard\" id=\"" + i + "\">"
-				+ "<input type=\"radio\" name=\"kittie\" value=\"" + cat.id + "\" id=\"input_" + i + "\">"
+                + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick();\">"
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
                 + i + "\"></div>" + "<div>" + details + "</div></div>";

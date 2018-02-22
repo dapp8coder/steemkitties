@@ -34,7 +34,7 @@ const renderUserCryptokitties = async (user) => {
 	}else{
 		$('#cryptokitties').cryptoCase(cryptokitties);
 	}
-	
+	attachEventSelectors();
 };
 
 var cryptokittie = "";
@@ -48,7 +48,7 @@ function adventureForm(){
 	var imgList= "";
 	imgList += "<div class=\"ant-form-item-label\"><label for=\"backgrounds\"><span class=\"Editor__label\">";
 	imgList += "<span>Select a Background</span></span></label></div>";
-	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 100px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";	
+	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 120px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";	
 	imgArray.forEach(function(entry) {
 		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
                 + "<div class=\"backgroundCard\">"				
@@ -62,7 +62,7 @@ function adventureForm(){
 	setTimeout(function(){
 	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 	renderUserCryptokitties(user);
-	attachEventSelectors();}, 2000);
+	}, 2000);
 	
 	//tid = setTimeout(attachEventSelectors, 2000);
 }

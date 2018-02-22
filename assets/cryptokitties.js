@@ -102,8 +102,8 @@ function compileAdventure(bg, cryptokittieIMG) {
 	 var canvas = document.createElement('canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
-	canvas.style.width = 800;
-	 canvas.style.height = 600;
+	canvas.style.width = "600px";
+	 canvas.style.height = "450px";
 	  $('#previewadventure').replaceWith(canvas);
 	var ctx = canvas.getContext('2d');
       

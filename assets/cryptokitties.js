@@ -113,18 +113,29 @@ $(".kittyCard").click(function() {
 	});	
 			
 }
-var getCanvasImage = function(image) {
- 
-    var imgWidth = 800,
-        imgHeight = 500;
- 
-    //define canvas image
-    var canvas = document.createElement('canvas');
-    canvas.width = imgWidth;
-    canvas.height = imgHeight;
+
+	
+	
+function compileAdventure(bg, cryptokittieIMG) {
+	 var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d');
-    ctx.drawImage(image, imgWidth, imgHeight);
-      imageFoo = document.createElement('img');
+       
+    var DOMURL = window.URL || window.webkitURL || window;
+    var imgBG = new Image();
+    imgBG.src = bg.src;
+    
+    imgBG.onload = function () {
+      ctx.drawImage(imgBG, 0, 0);
+    }
+    var img = new Image();
+    img.src = cryptokittieIMG.src;
+    
+    img.onload = function () {
+      ctx.drawImage(img, 400, 370, 300, 300);
+      //DOMURL.revokeObjectURL(url);
+    }
+	
+	     imageFoo = document.createElement('img');
 	    dataUrl = canvas.toDataURL(),
 imageFoo.src = dataUrl;
 
@@ -134,37 +145,8 @@ imageFoo.style.height = '450px';
 
 // After you are done styling it, append it to the BODY element
 $('cryptokitties').append(imageFoo);
-    
  
-}
 	
-	
-function compileAdventure(bg, cryptokittieIMG) {
-	 var canvas = document.createElement('canvas');
-    var ctx = canvas.getContext('2d');
-    
-        //var bg = document.getElementById(bg);
-    
-    var DOMURL = window.URL || window.webkitURL || window;
-    var imgBG = new Image();
-    imgBG.src = bg.src;
-   // var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
-    //var url = DOMURL.createObjectURL(svg);
-    
-    imgBG.onload = function () {
-      ctx.drawImage(imgBG, 0, 0);
-     // DOMURL.revokeObjectURL(url);
-    }
-    var img = new Image();
-    img.src = cryptokittieIMG.src;
-   // var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
-    //var url = DOMURL.createObjectURL(svg);
-    
-    img.onload = function () {
-      ctx.drawImage(img, 400, 370, 300, 300);
-      //DOMURL.revokeObjectURL(url);
-    }
-	$('#img_canvas').src = canvas.toDataURL("image/jpeg");
 }
 
 function finishStory() {

@@ -186,7 +186,7 @@ class Editor extends React.Component {
     const { words, minutes } = readingTime(bodyHTML);
 
     return (
-	<div class="Editor0"></div>
+	<div className="Editor0"></div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>
           <title>

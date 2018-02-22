@@ -34,7 +34,6 @@ const renderUserCryptokitties = async (user) => {
 	}else{
 		$('#cryptokitties').cryptoCase(cryptokitties);
 	}
-	tid = setTimeout(attachEventSelectors(), 2500);
 };
 
 var cryptokittie = "";
@@ -62,6 +61,7 @@ function adventureForm(){
 	setTimeout(function(){
 	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 	renderUserCryptokitties(user);
+	setTimeout(attachEventSelectors(), 2500);
 	}, 2000);
 	
 

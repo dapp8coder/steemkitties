@@ -42,7 +42,7 @@ var writeHTML = "";
 
 function adventureForm(){
 	$('.Editor0').html('<img src="/images/wait.gif" />');
-	
+	$('.Editor0').hide();
 	$('.Editor0').show();
 		
 	var jsonURL = "/backgrounds.json?v=1";
@@ -61,7 +61,7 @@ function adventureForm(){
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	
-	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"><img id="img_canvas" src="/images/backgrounds/bg1.png" width="800" height="500" /></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
+	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 
 	renderUserCryptokitties(user);	
 	tid = setTimeout(attachEventSelectors, 1000);
@@ -113,9 +113,18 @@ var getCanvasImage = function(image) {
     canvas.height = imgHeight;
     var ctx = canvas.getContext('2d');
     ctx.drawImage(image, imgWidth, imgHeight);
-         
-    //convert canvas to jpeg URL
-    return canvas.toDataURL("image/jpeg");
+      imageFoo = document.createElement('img');
+	    dataUrl = canvas.toDataURL(),
+imageFoo.src = dataUrl;
+
+// Style your image here
+imageFoo.style.width = '600px';
+imageFoo.style.height = '450px';
+
+// After you are done styling it, append it to the BODY element
+$('cryptokitties').append(imageFoo);
+    
+ 
 }
 	
 	

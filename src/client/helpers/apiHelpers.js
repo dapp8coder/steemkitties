@@ -11,6 +11,7 @@ import * as accountHistoryConstants from '../../common/constants/accountHistory'
  * @returns {function}
  */
 export function getDiscussionsFromAPI(sortBy, query, steemAPI) {
+	console.log(query);
   switch (sortBy) {
     case 'feed':
     case 'hot':

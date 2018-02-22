@@ -75,7 +75,7 @@ $(document).ready(function() {
  
 	setTimeout(attachEventSelectors(), 3000);
 	
-	
+	setTimeout(attachEventSelectors(), 4000);
 });
 
 function attachEventSelectors(){

@@ -52,7 +52,7 @@ function adventureForm(){
 	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 120px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";	
 	imgArray.forEach(function(entry) {
 		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"backgroundCard\" onclick=\"BackgroundClick('"+entry.src+"');\">"				
+                + "<div class=\"backgroundCard\" onclick=\"BackgroundClick('"+entry.src+"', this);\">"				
                 + "<img class=\""
                 + "image img-responsive\" src=\"" + entry.src + "\" /></div></div>";
 	});
@@ -88,7 +88,7 @@ function KittieClick(e){
 		Cookies.set('id', id);
 }	
 
-function BackgroundClick(src){
+function BackgroundClick(src, e){
 		$(".backgroundCard").removeClass("glow");
 		var background = src;
 		id = Cookies.get('id'); 

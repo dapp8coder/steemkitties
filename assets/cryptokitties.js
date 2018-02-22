@@ -217,7 +217,7 @@ function finishStory() {
 		  
           $(location).html(cats);
          
-		   $('.wiating').hide();
+		   $('.waiting').hide();
 		  $('.Editor0').show();
 		 
         }

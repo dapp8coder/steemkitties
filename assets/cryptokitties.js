@@ -82,7 +82,7 @@ function KittieClick(e){
 		var id = e.id;
 		
 		$(e).addClass("glow");      //add the class to the clicked element
-		if(!Cookies.get('background')){
+		if(Cookies.get('background')){
 			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src);
 		}
 		Cookies.set('id', id);
@@ -93,7 +93,7 @@ function BackgroundClick(src, e){
 		var background = src;
 		id = Cookies.get('id'); 
 		$(e).addClass("glow");      //add the class to the clicked element
-		if(!Cookies.get('id')){
+		if(Cookies.get('id')){
 			compileAdventure(background,$("#image_"+id)[0].src);
 		}
 		Cookies.set('background', background);
@@ -103,11 +103,12 @@ function compileAdventure(bg, cryptokittieIMG) {
 	 var canvas = document.createElement('canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
+	 
 	canvas.style.width = "600px";
 	 canvas.style.height = "450px";
 	  $('#previewadventure').replaceWith(canvas);
 	var ctx = canvas.getContext('2d');
-      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     var DOMURL = window.URL || window.webkitURL || window;
     var imgBG = new Image();
     imgBG.src = bg;

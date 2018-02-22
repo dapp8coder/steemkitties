@@ -49,7 +49,7 @@ function adventureForm(){
 	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 120px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";	
 	imgArray.forEach(function(entry) {
 		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"backgroundCard\" onclick=\"BackgroundClick();\">"				
+                + "<div class=\"backgroundCard\" onclick=\"BackgroundClick(this);\">"				
                 + "<img class=\""
                 + "image img-responsive\" src=\"" + entry.src + "\" /></div></div>";
 	});
@@ -75,23 +75,23 @@ $(document).ready(function() {
 
 
 
-function KittieClick(){
+function KittieClick(e){
 
 		$(".kittyCard").removeClass("glow");
-		var id = this.id;
+		var id = e.id;
 		
-		$(this).addClass("glow");      //add the class to the clicked element
+		$(e).addClass("glow");      //add the class to the clicked element
 		if(!Cookies.get('background')){
 			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src);
 		}
 		Cookies.set('id', id);
 }	
 
-function BackgroundClick(){
+function BackgroundClick(e){
 		$(".backgroundCard").removeClass("glow");
-		var background = $(this).children('img').src;
+		var background = $(e).children('img').src;
 		id = Cookies.get('id'); 
-		$(this).addClass("glow");      //add the class to the clicked element
+		$(e).addClass("glow");      //add the class to the clicked element
 		if(!Cookies.get('id')){
 			compileAdventure(background,$("#image_"+id)[0].src);
 		}
@@ -202,7 +202,7 @@ function finishStory() {
               details += "<\/div>";
            
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick();\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
+                + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick(this);\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
                 + cat.id + "\"></div>" + "<div>" + details + "</div></div>";

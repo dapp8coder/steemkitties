@@ -21,6 +21,7 @@ imgArray[4].src = '/images/backgrounds/bg5.png';
 var writeHTML = "";
 
 const getUserCryptokitties = async (user) => {
+	steem.api.setOptions({ url: 'https://api.steemit.com'});
   const [account] = await steem.api.getAccountsAsync([user]);
   var cryptokitties = JSON.parse(account.json_metadata).profile.cryptokitties
   Cookies.set('cryptokitties', cryptokitties);
@@ -56,12 +57,10 @@ function adventureForm(){
 	imgList += "</div></div>";
 	
 	var user = $(".Topnav__user__username")[0].outerText;
-	steem.api.setOptions({ url: 'https://api.steemit.com'});
-	setTimeout(function(){
+		//setTimeout(function(){
 	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 	renderUserCryptokitties(user);
-	
-	}, 1000);
+	//}, 1000);
 	
 
 }
@@ -69,7 +68,7 @@ function adventureForm(){
 
 $(document).ready(function() {
 	
-	var tid0 = setTimeout(adventureForm, 500);
+	adventureForm();
  
 });
 

@@ -34,7 +34,7 @@ const renderUserCryptokitties = async (user) => {
 	}else{
 		$('#cryptokitties').cryptoCase(cryptokitties);
 	}
-	tid = setTimeout(attachEventSelectors, 2500);
+	tid = setTimeout(attachEventSelectors(), 2500);
 };
 
 var cryptokittie = "";

@@ -61,7 +61,7 @@ function adventureForm(){
 	setTimeout(function(){
 	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 	renderUserCryptokitties(user);
-	setTimeout(attachEventSelectors(), 3000);
+	
 	}, 2000);
 	
 
@@ -73,35 +73,28 @@ $(document).ready(function() {
 	
 	var tid0 = setTimeout(adventureForm, 500);
  
-	//attachEventSelectors();
+	setTimeout(attachEventSelectors(), 2000);
 	
 	
 });
 
 function attachEventSelectors(){
+	$(".kittyCard").unbind( "click" );
 $(".kittyCard").click(function() {  
 		$(".kittyCard").removeClass("glow");
 		var id = this.id;
-		console.log("#input_"+id);
-		cryptokittie = $("#input_"+id).val();
-		$("#input_"+id).prop("checked", true);
+		
+		
 		$(this).addClass("glow");      //add the class to the clicked element
 		compileAdventure(imgArray[0],$("#image_"+id)[0]);
 		
-		Cookies.set('cryptokittie', cryptokittie);
+		
 		Cookies.set('id', id);
 	});	
 		
 	
-	$('input[name=kittie]').change(function() {
-		$(".kittyCard").removeClass("glow");
-		var id = this.id;
-		$(id.replace("input_", "")).addClass("glow");
-    });
-	cryptokittie = Cookies.get('cryptokittie'); 
-	if (cryptokittie){
-		$("input[value='"+cryptokittie+"']").prop("checked", true);
-	}
+	$(".backgroundCard").unbind( "click" );
+	
 	$(".backgroundCard").click(function() {  
 		$(".backgroundCard").removeClass("glow");
 		var background = $(this).children('img').src;
@@ -111,7 +104,7 @@ $(".kittyCard").click(function() {
 		
 		Cookies.set('background', background);
 	});	
-			
+		setTimeout(attachEventSelectors(), 1000);	
 }
 
 	

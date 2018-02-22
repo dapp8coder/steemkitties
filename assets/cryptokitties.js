@@ -67,9 +67,9 @@ function adventureForm(){
 
 
 $(document).ready(function() {
-		$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><script>adventureForm();</script></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
+	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 
-	//adventureForm();
+	adventureForm();
  
 });
 

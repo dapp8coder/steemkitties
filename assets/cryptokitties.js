@@ -128,7 +128,7 @@ function compileAdventure(bg, cryptokittieIMG) {
     img.src = cryptokittieIMG.src;
     
     img.onload = function () {
-      ctx.drawImage(img, 400, 370, 300, 300);
+      ctx.drawImage(img, 350, 270, 300, 300);
       //DOMURL.revokeObjectURL(url);
     }
 	

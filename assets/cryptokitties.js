@@ -73,7 +73,7 @@ $(document).ready(function() {
 	
 	var tid0 = setTimeout(adventureForm, 500);
  
-	setTimeout(attachEventSelectors(), 2000);
+	setTimeout(attachEventSelectors(), 3000);
 	
 	
 });
@@ -104,7 +104,7 @@ $(".kittyCard").click(function() {
 		
 		Cookies.set('background', background);
 	});	
-		setTimeout(attachEventSelectors(), 1000);	
+		//setTimeout(attachEventSelectors(), 1000);	
 }
 
 	

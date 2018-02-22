@@ -50,7 +50,7 @@ function adventureForm(){
 	imgList += "<div class=\"container\" style=\"  padding-top: 14px;  overflow-x: scroll;    height: 120px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";	
 	imgArray.forEach(function(entry) {
 		 imgList += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"backgroundCard\" onclick=\"BackgroundClick(this);\">"				
+                + "<div class=\"backgroundCard\" onclick=\"BackgroundClick('"+entry.src+"');\">"				
                 + "<img class=\""
                 + "image img-responsive\" src=\"" + entry.src + "\" /></div></div>";
 	});
@@ -86,9 +86,9 @@ function KittieClick(e){
 		Cookies.set('id', id);
 }	
 
-function BackgroundClick(e){
+function BackgroundClick(src){
 		$(".backgroundCard").removeClass("glow");
-		var background = $(e).children('img').src;
+		var background = src;
 		id = Cookies.get('id'); 
 		$(e).addClass("glow");      //add the class to the clicked element
 		if(!Cookies.get('id')){

@@ -113,8 +113,9 @@ function compileAdventure(bg, cryptokittieIMG) {
 	 var canvas = document.createElement('canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
+	  $('#previewadventure').append(canvas);
 	var ctx = canvas.getContext('2d');
-       
+      
     var DOMURL = window.URL || window.webkitURL || window;
     var imgBG = new Image();
     imgBG.src = bg.src;
@@ -139,7 +140,7 @@ imageFoo.style.width = '600px';
 imageFoo.style.height = '450px';
 
 // After you are done styling it, append it to the BODY element
-$('#previewadventure').append(imageFoo);
+//$('#previewadventure').append(imageFoo);
  
 	
 }

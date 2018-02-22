@@ -118,14 +118,16 @@ $(".kittyCard").click(function() {
 	
 function compileAdventure(bg, cryptokittieIMG) {
 	 var canvas = document.createElement('canvas');
-    var ctx = canvas.getContext('2d');
+	 canvas.width = 800;
+	 canvas.height = 600;
+	var ctx = canvas.getContext('2d');
        
     var DOMURL = window.URL || window.webkitURL || window;
     var imgBG = new Image();
     imgBG.src = bg.src;
     
     imgBG.onload = function () {
-      ctx.drawImage(imgBG, 0, 0);
+      ctx.drawImage(imgBG, 0, 0. 800, 600);
     }
     var img = new Image();
     img.src = cryptokittieIMG.src;
@@ -136,7 +138,7 @@ function compileAdventure(bg, cryptokittieIMG) {
     }
 	
 	     imageFoo = document.createElement('img');
-	    dataUrl = canvas.toDataURL(),
+	    dataUrl = canvas.toDataURL();
 imageFoo.src = dataUrl;
 
 // Style your image here

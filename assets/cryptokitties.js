@@ -69,7 +69,7 @@ function adventureForm(){
 
 
 $(document).ready(function() {
-	$('.Editor').hide();
+	//$('.Editor').hide();
 	
 	var tid0 = setTimeout(adventureForm, 500);
  

@@ -34,7 +34,7 @@ const renderUserCryptokitties = async (user) => {
 	}else{
 		$('#cryptokitties').cryptoCase(cryptokitties);
 	}
-	attachEventSelectors();
+	tid = setTimeout(attachEventSelectors, 2500);
 };
 
 var cryptokittie = "";
@@ -64,7 +64,7 @@ function adventureForm(){
 	renderUserCryptokitties(user);
 	}, 2000);
 	
-	//tid = setTimeout(attachEventSelectors, 2000);
+
 }
 
 

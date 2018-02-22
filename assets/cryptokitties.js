@@ -58,7 +58,6 @@ function adventureForm(){
 	
 	var user = $(".Topnav__user__username")[0].outerText;
 		//setTimeout(function(){
-	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 	renderUserCryptokitties(user);
 	//}, 1000);
 	
@@ -67,8 +66,9 @@ function adventureForm(){
 
 
 $(document).ready(function() {
-	
-	adventureForm();
+		$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2><script>adventureForm();</script></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
+
+	//adventureForm();
  
 });
 
@@ -186,7 +186,7 @@ function finishStory() {
           
             max = response.total;
          console.log(max);
-          var j = max;
+         
           for (i = 0; i < max; i++) {
             var cat = response.kitties[i];
             var details = "";
@@ -205,12 +205,8 @@ function finishStory() {
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
                 + cat.id + "\"></div>" + "<div>" + details + "</div></div>";
-           /* if (i == 3 || i == 7 || i == 11) {
-              cats += "<\/div>";
-            }*/
-            newColors[i] = COLORS[cat.color];
-            newColors[j] = COLORS[cat.color];
-            j++;
+         
+           
           }
           cats += "</div></div>";
 		  

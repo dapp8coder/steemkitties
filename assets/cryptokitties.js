@@ -41,7 +41,7 @@ var cryptokittie = "";
 var writeHTML = "";
 
 function adventureForm(){
-	$('.Editor0').html('<img src="/images/wait.gif" />');
+	$('.Editor0').html('<img src="/images/wait.gif" /><h2>Meow, Please wait...</h2>');
 	$('.Editor0').show();
 		
 	var jsonURL = "/backgrounds.json?v=1";
@@ -60,7 +60,7 @@ function adventureForm(){
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
 	setTimeout(function(){
-	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
+	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div id="previewadventure" class="ant-row ant-form-item" class="height:200px;"></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
 	renderUserCryptokitties(user);
 	attachEventSelectors();}, 2000);
 	
@@ -144,7 +144,7 @@ imageFoo.style.width = '600px';
 imageFoo.style.height = '450px';
 
 // After you are done styling it, append it to the BODY element
-$('#cryptokitties').append(imageFoo);
+$('#previewadventure').append(imageFoo);
  
 	
 }

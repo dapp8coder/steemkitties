@@ -85,9 +85,11 @@ $(".kittyCard").click(function() {
 		console.log("#input_"+id);
 		cryptokittie = $("#input_"+id).val();
 		$("#input_"+id).prop("checked", true);
-		compileAdventure(imgArray[0],$("#image_"+id)[0]);
 		$(this).addClass("glow");      //add the class to the clicked element
+		compileAdventure(imgArray[0],$("#image_"+id)[0]);
+		
 		Cookies.set('cryptokittie', cryptokittie);
+		Cookies.set('id', id);
 	});	
 		
 	
@@ -98,9 +100,18 @@ $(".kittyCard").click(function() {
     });
 	cryptokittie = Cookies.get('cryptokittie'); 
 	if (cryptokittie){
-		$("input[value='kittie']").prop("checked", true);
+		$("input[value='"+cryptokittie+"']").prop("checked", true);
 	}
+	$(".backgroundCard").click(function() {  
+		$(".backgroundCard").removeClass("glow");
+		var background = $(this).children('img').src;
+		id = Cookies.get('id'); 
+		$(this).addClass("glow");      //add the class to the clicked element
+		compileAdventure(background,$("#image_"+id)[0]);
 		
+		Cookies.set('background', background);
+	});	
+			
 }
 var getCanvasImage = function(image) {
  

@@ -42,7 +42,6 @@ var writeHTML = "";
 
 function adventureForm(){
 	$('.Editor0').html('<img src="/images/wait.gif" />');
-	$('.Editor0').hide();
 	$('.Editor0').show();
 		
 	var jsonURL = "/backgrounds.json?v=1";
@@ -60,11 +59,11 @@ function adventureForm(){
 	
 	var user = $(".Topnav__user__username")[0].outerText;
 	steem.api.setOptions({ url: 'https://api.steemit.com'});
-	
+	setTimeout(function(){
 	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;">'+imgList+'</div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
-
+	attachEventSelectors();}, 2000);
 	renderUserCryptokitties(user);	
-	tid = setTimeout(attachEventSelectors, 1000);
+	//tid = setTimeout(attachEventSelectors, 2000);
 }
 
 
@@ -107,7 +106,7 @@ $(".kittyCard").click(function() {
 		var background = $(this).children('img').src;
 		id = Cookies.get('id'); 
 		$(this).addClass("glow");      //add the class to the clicked element
-		compileAdventure(background,$("#image_"+id)[0]);
+		compileAdventure($(this).children('img'),$("#image_"+id)[0]);
 		
 		Cookies.set('background', background);
 	});	
@@ -144,7 +143,7 @@ imageFoo.style.width = '600px';
 imageFoo.style.height = '450px';
 
 // After you are done styling it, append it to the BODY element
-$('cryptokitties').append(imageFoo);
+$('#cryptokitties').append(imageFoo);
  
 	
 }

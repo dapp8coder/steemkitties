@@ -187,7 +187,7 @@ class Editor extends React.Component {
 
     return (
 	<div>
-	<div className="waiting"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2><div>
+	<div className="waiting"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div>
 	<div className="Editor0"></div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>

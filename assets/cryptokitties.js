@@ -183,7 +183,7 @@ function finishStory() {
 		 
 			
 		  cats += "<div class=\"container\" style=\" padding-top: 14px;    overflow-x: scroll;   height: 214px;    overflow-y: hidden;\"><div class=\"well\ wellColor\">";
-            //  + "<div class=\"row\">";
+  
           
             max = response.total;
          console.log(max);
@@ -200,14 +200,12 @@ function finishStory() {
               details += "<span class=\"details\"> &#xB7; Fancy<\/span>";
             }*/
               details += "<\/div>";
-           /* if (i == 4 || i == 8) {
-              cats += "<div class=\"row\">";
-            }*/
+           
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick();\">"
+                + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick();\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
-                + i + "\"></div>" + "<div>" + details + "</div></div>";
+                + cat.id + "\"></div>" + "<div>" + details + "</div></div>";
            /* if (i == 3 || i == 7 || i == 11) {
               cats += "<\/div>";
             }*/
@@ -218,15 +216,7 @@ function finishStory() {
           cats += "</div></div>";
 		  
           $(location).html(cats);
-          for (i = 0; i < max; i++) {
-            var change = "#" + i;
-            $(change).css('background-color', newColors[i]);
-            $(change).css('border-radius', '5px');
-          }
-          for (l = max; l < (max * 2); l++) {
-            var change2 = "#" + l;
-            $(change2).css('background-color', newColors[j]);
-          }
+         
 		   $('.wiating').hide();
 		  $('.Editor0').show();
 		 

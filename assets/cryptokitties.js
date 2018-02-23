@@ -100,6 +100,30 @@ function BackgroundClick(src, e){
 
 }	
 function compileAdventure(bg, cryptokittieIMG) {
+	
+	var img = new Image,
+    canvas = document.createElement("canvas"),
+    ctx = canvas.getContext("2d"),
+    src = "http://example.com/image"; // insert image url here
+
+img.crossOrigin = "Anonymous";
+
+img.onload = function() {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage( img, 0, 0 );
+    localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
+}
+img.src = src;
+// make sure the load event fires for cached images too
+if ( img.complete || img.complete === undefined ) {
+    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+    img.src = src;
+}
+	
+	
+	
+	
 	 var canvas = document.getElementById('preview_canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
@@ -111,29 +135,22 @@ function compileAdventure(bg, cryptokittieIMG) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	var DOMURL = window.URL || window.webkitURL || window;
 	var imgBG = new Image();
+	imgBG.crossOrigin = "Anonymous";
 	imgBG.src = bg;
     
     imgBG.onload = function () {
       ctx.drawImage(imgBG, 0, 0, 800, 600);
     }
     var img = new Image();
+	img.crossOrigin = "Anonymous";
     img.src = cryptokittieIMG;
     
     img.onload = function () {
-      ctx.drawImage(img, 300, 200, 300, 300);
+      ctx.drawImage(img, 200, 200, 300, 300);
+	  localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
     }
-
-	imageFoo = document.createElement('img');
-	dataUrl = canvas.toDataURL();
-	imageFoo.src = dataUrl;
-
-// Style your image here
-imageFoo.style.width = '600px';
-imageFoo.style.height = '450px';
-
-// After you are done styling it, append it to the BODY element
-$('#previewadventure').append(imageFoo);
- 
+	
+	
 	
 }
 
@@ -164,12 +181,8 @@ function finishStory() {
 
 function postCanvasToURL(canvas_e) {
 	
-	var snap = document.getElementById(canvas_e);
-var flatten = snap.getContext('2d');
-  // Convert canvas image to Base64
-  var img = snap.toDataURL();
-  // Convert Base64 image to binary
-  return dataURItoBlob(img);
+	
+  return dataURItoBlob(localStorage.getItem('savedImageData'));
   
 }
 

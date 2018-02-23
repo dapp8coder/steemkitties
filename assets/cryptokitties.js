@@ -41,8 +41,8 @@ var cryptokittie = "";
 var writeHTML = "";
 
 function adventureForm(){
-	$('.Editor0').show();
-	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div id="previewadventure" class="ant-row ant-form-item" class="height:450px;"><canvas id="preview_canvas"></canvas></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="">Meow Next</button></div></div></div></div></div>'); 
+	
+	$('.Editor0').html('<div id="cryptokitties" class="ant-row ant-form-item" class="height:200px;"></div><div id="backgrounds" class="ant-row ant-form-item" class="height:200px;"></div><div id="previewadventure" class="ant-row ant-form-item" class="height:450px;"><canvas id="preview_canvas"></canvas></div><div class="ant-row ant-form-item"></div><div class="Editor__bottom"><div class="Editor__bottom__right"><div class="ant-row ant-form-item"><div class="ant-form-item-control-wrapper"><div class="ant-form-item-control "><button class="" type="" onclick="finishStory();">Meow Next</button></div></div></div></div></div>'); 
 
 		
 	var jsonURL = "/backgrounds.json?v=1";
@@ -63,7 +63,7 @@ function adventureForm(){
 		//setTimeout(function(){
 	renderUserCryptokitties(user);
 	//}, 1000);
-	
+	$('.Editor0').show();
 
 }
 
@@ -71,7 +71,7 @@ function adventureForm(){
 $(document).ready(function() {	
 setTimeout(function(){
 	adventureForm();
- }, 2000);
+ }, 4000);
 });
 
 
@@ -104,14 +104,14 @@ function compileAdventure(bg, cryptokittieIMG) {
 	 canvas.width = 800;
 	 canvas.height = 600;
 	 
-	canvas.style.width = "600px";
-	 canvas.style.height = "450px";
-	 // $('#previewadventure').replaceWith(canvas);
+	canvas.style.width = "100%";
+	canvas.style.height = "100%";
+	// $('#previewadventure').replaceWith(canvas);
 	var ctx = canvas.getContext('2d');
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var DOMURL = window.URL || window.webkitURL || window;
-    var imgBG = new Image();
-    imgBG.src = bg;
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	var DOMURL = window.URL || window.webkitURL || window;
+	var imgBG = new Image();
+	imgBG.src = bg;
     
     imgBG.onload = function () {
       ctx.drawImage(imgBG, 0, 0, 800, 600);
@@ -120,13 +120,12 @@ function compileAdventure(bg, cryptokittieIMG) {
     img.src = cryptokittieIMG;
     
     img.onload = function () {
-      ctx.drawImage(img, 350, 270, 300, 300);
-      //DOMURL.revokeObjectURL(url);
+      ctx.drawImage(img, 300, 200, 300, 300);
     }
-	
-	     imageFoo = document.createElement('img');
-	    dataUrl = canvas.toDataURL();
-imageFoo.src = dataUrl;
+
+	imageFoo = document.createElement('img');
+	dataUrl = canvas.toDataURL();
+	imageFoo.src = dataUrl;
 
 // Style your image here
 imageFoo.style.width = '600px';
@@ -139,18 +138,60 @@ $('#previewadventure').append(imageFoo);
 }
 
 function finishStory() {
-		
-
-	
-	//$('form.Editor').html('<img src="/images/wait.gif" /><div style="display:none;">'+imagesHTML+'</div>');
-	 var canvas = $('#canvas');
-    var ctx = canvas.getContext('2d');
-    
-	
-	
+	 
+        
+        .then(res => callback(res.secure_url, blob.name))	
+    .appendChild(Canvas2Image.convertToImage(canvas, w, h, type))
+	const formData = new FormData();
+    formData.append('files', postCanvasToURL('preview_canvas'));
+	$.ajax({
+    type: 'POST',
+   
+    url: 'https://img.busy.org/@'+user+'/uploads',
+    data: { 
+        'body': formData
+    },
+    success: function(msg){
 		$('.Editor0').hide();
 		$('.Editor').show();
+		alert(msg.secure_url);
+      // callback(msg.secure_url, msg.name)
+    }
+	});
+	
+		
+		
 }
+
+
+function postCanvasToURL(canvas_e) {
+	
+	var snap = document.getElementById(canvas_e);
+var flatten = snap.getContext('2d');
+  // Convert canvas image to Base64
+  var img = snap.toDataURL();
+  // Convert Base64 image to binary
+  return dataURItoBlob(img);
+  
+}
+
+function dataURItoBlob(dataURI) {
+// convert base64/URLEncoded data component to raw binary data held in a string
+var byteString;
+if (dataURI.split(',')[0].indexOf('base64') >= 0)
+    byteString = atob(dataURI.split(',')[1]);
+else
+    byteString = unescape(dataURI.split(',')[1]);
+// separate out the mime component
+var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+// write the bytes of the string to a typed array
+var ia = new Uint8Array(byteString.length);
+for (var i = 0; i < byteString.length; i++) {
+    ia[i] = byteString.charCodeAt(i);
+}
+return new Blob([ia], {type:mimeString});
+}
+
 	
 	
 	(function($) {
@@ -223,3 +264,5 @@ function finishStory() {
     };
 	
 }(jQuery));
+
+

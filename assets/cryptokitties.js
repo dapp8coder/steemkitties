@@ -100,7 +100,7 @@ function BackgroundClick(src, e){
 
 }	
 function compileAdventure(bg, cryptokittieIMG) {
-	
+	loadKittieSvg("#hiddenSVG", cryptokittieIMG);
 	 var canvas = document.getElementById('preview_canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
@@ -118,9 +118,13 @@ function compileAdventure(bg, cryptokittieIMG) {
     imgBG.onload = function () {
       ctx.drawImage(imgBG, 0, 0, 800, 600);
     }
+	var wrap = document.getElementById("hiddenSVG");
+data = "data:image/svg+xml;base64," + window.btoa(wrap.innerHTML);
+
+	
     var img = new Image();
 	img.crossOrigin = "Anonymous";
-    img.src = cryptokittieIMG;
+    img.src = data;
     
     img.onload = function () {
       ctx.drawImage(img, 200, 200, 300, 300);
@@ -240,7 +244,7 @@ return new Blob([ia], {type:mimeString});
          
            
           }
-          cats += "</div></div>";
+          cats += "</div></div><div id=\"hiddenSVG\"></div>";
 		  
           $(location).html(cats);
          
@@ -254,3 +258,17 @@ return new Blob([ia], {type:mimeString});
 }(jQuery));
 
 
+function loadKittieSvg(selector, url) {
+  var target = document.querySelector(selector);
+
+    // Request the SVG file
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", url , true);
+    ajax.send();
+
+    // Append the SVG to the target
+    ajax.onload = function(e) {
+      target.innerHTML = ajax.responseText;
+    }
+  
+}

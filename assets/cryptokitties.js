@@ -100,7 +100,6 @@ function BackgroundClick(src, e){
 
 }	
 function compileAdventure(bg, cryptokittieIMG) {
-	loadKittieSvg("#hiddenSVG", cryptokittieIMG);
 	 var canvas = document.getElementById('preview_canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
@@ -118,17 +117,15 @@ function compileAdventure(bg, cryptokittieIMG) {
     imgBG.onload = function () {
       ctx.drawImage(imgBG, 0, 0, 800, 600);
     }
-	var wrap = document.getElementById("hiddenSVG");
-data = "data:image/svg+xml;base64," + window.btoa(wrap.innerHTML);
-
+	
 	
     var img = new Image();
 	//img.crossOrigin = "Anonymous";
-    img.src = data;
+    img.src = 'https://steemimages.herokuapp.com/index.php?svg='.cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
     
     img.onload = function () {
       ctx.drawImage(img, 200, 200, 300, 300);
-	 // localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
+	  localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
     }
 	
 	
@@ -244,7 +241,7 @@ return new Blob([ia], {type:mimeString});
          
            
           }
-          cats += "</div></div><div id=\"hiddenSVG\"></div>";
+          cats += "</div></div>";
 		  
           $(location).html(cats);
          

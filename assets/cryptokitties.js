@@ -121,7 +121,7 @@ function compileAdventure(bg, cryptokittieIMG) {
 	
     var img = new Image();
 	//img.crossOrigin = "Anonymous";
-    img.src = 'https://steemimages.herokuapp.com/index.php?svg='+cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
+    img.src = 'https://img.steemkitties.com/index.php?svg='+cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
     
      img.onload = function () {
       ctx.drawImage(img, 130, 220, 300, 300);

@@ -123,23 +123,21 @@ function compileAdventure(bg, cryptokittieIMG) {
 	//img.crossOrigin = "Anonymous";
     img.src = 'https://steemimages.herokuapp.com/index.php?svg='+cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
     
-    img.onload = function () {
-        ctx.drawImage(img, 130, 220, 300, 300);
-	  localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
+     img.onload = function () {
+      ctx.drawImage(img, 130, 220, 300, 300);
+	  localStorage.setItem( "savedImageData", canvas.toDataURL() );
     }
 	
 	
 	
 }
 
-function finishStory() {
-	 
-        
+function finishStory() { 
 	const formData = new FormData();
     formData.append('files', postCanvasToURL('preview_canvas'));
+var user = $(".Topnav__user__username")[0].outerText;
 	$.ajax({
     type: 'POST',
-   
     url: 'https://img.busy.org/@'+user+'/uploads',
     data: { 
         'body': formData
@@ -151,10 +149,9 @@ function finishStory() {
       // callback(msg.secure_url, msg.name)
     }
 	});
-	
-		
-		
+
 }
+
 
 
 function postCanvasToURL(canvas_e) {

@@ -140,8 +140,6 @@ $('#previewadventure').append(imageFoo);
 function finishStory() {
 	 
         
-        .then(res => callback(res.secure_url, blob.name))	
-    .appendChild(Canvas2Image.convertToImage(canvas, w, h, type))
 	const formData = new FormData();
     formData.append('files', postCanvasToURL('preview_canvas'));
 	$.ajax({

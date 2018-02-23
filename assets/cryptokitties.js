@@ -83,7 +83,7 @@ function KittieClick(e){
 		
 		$(e).addClass("glow");      //add the class to the clicked element
 		if(Cookies.get('background')){
-			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src);
+			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src.toString());
 		}
 		Cookies.set('id', id);
 }	
@@ -94,7 +94,7 @@ function BackgroundClick(src, e){
 		id = Cookies.get('id'); 
 		$(e).addClass("glow");      //add the class to the clicked element
 		if(Cookies.get('id')){
-			compileAdventure(background,$("#image_"+id)[0].src);
+			compileAdventure(background,$("#image_"+id)[0].src.toString());
 		}
 		Cookies.set('background', background);
 
@@ -121,7 +121,7 @@ function compileAdventure(bg, cryptokittieIMG) {
 	
     var img = new Image();
 	//img.crossOrigin = "Anonymous";
-    img.src = 'https://steemimages.herokuapp.com/index.php?svg='.cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
+    img.src = 'https://steemimages.herokuapp.com/index.php?svg='+cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
     
     img.onload = function () {
       ctx.drawImage(img, 200, 200, 300, 300);

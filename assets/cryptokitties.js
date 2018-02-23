@@ -85,7 +85,6 @@ function KittieClick(e){
 		if(Cookies.get('background')){
 			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src.toString());
 		}
-   id=\"" + cat.id + "\"
   	Cookies.set('kittieName', $("#name_"+id)[0].innerText());
 		Cookies.set('id', id);
 }	

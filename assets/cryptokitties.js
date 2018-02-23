@@ -124,7 +124,7 @@ function compileAdventure(bg, cryptokittieIMG) {
     img.src = 'https://steemimages.herokuapp.com/index.php?svg='+cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
     
     img.onload = function () {
-      ctx.drawImage(img, 200, 200, 300, 300);
+        ctx.drawImage(img, 130, 220, 300, 300);
 	  localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
     }
 	

@@ -101,29 +101,6 @@ function BackgroundClick(src, e){
 }	
 function compileAdventure(bg, cryptokittieIMG) {
 	
-	var img = new Image,
-    canvas = document.createElement("canvas"),
-    ctx = canvas.getContext("2d"),
-    src = "http://example.com/image"; // insert image url here
-
-img.crossOrigin = "Anonymous";
-
-img.onload = function() {
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage( img, 0, 0 );
-    localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
-}
-img.src = src;
-// make sure the load event fires for cached images too
-if ( img.complete || img.complete === undefined ) {
-    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-    img.src = src;
-}
-	
-	
-	
-	
 	 var canvas = document.getElementById('preview_canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;

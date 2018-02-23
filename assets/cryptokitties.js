@@ -112,7 +112,7 @@ function compileAdventure(bg, cryptokittieIMG) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	var DOMURL = window.URL || window.webkitURL || window;
 	var imgBG = new Image();
-	imgBG.crossOrigin = "Anonymous";
+	//imgBG.crossOrigin = "Anonymous";
 	imgBG.src = bg;
     
     imgBG.onload = function () {
@@ -123,12 +123,12 @@ data = "data:image/svg+xml;base64," + window.btoa(wrap.innerHTML);
 
 	
     var img = new Image();
-	img.crossOrigin = "Anonymous";
+	//img.crossOrigin = "Anonymous";
     img.src = data;
     
     img.onload = function () {
       ctx.drawImage(img, 200, 200, 300, 300);
-	  localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
+	 // localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
     }
 	
 	

@@ -133,23 +133,9 @@ function compileAdventure(bg, cryptokittieIMG) {
 }
 
 function finishStory() { 
-	const formData = new FormData();
-    formData.append('files', postCanvasToURL('preview_canvas'));
-var user = $(".Topnav__user__username")[0].outerText;
-	$.ajax({
-    type: 'POST',
-    url: 'https://img.busy.org/@'+user+'/uploads',
-    data: { 
-        'body': formData
-    },
-    success: function(msg){
+$("textarea").val('![image.png]('+localStorage.getItem('savedImageData')+')');
 		$('.Editor0').hide();
 		$('.Editor').show();
-		alert(msg.secure_url);
-      // callback(msg.secure_url, msg.name)
-    }
-	});
-
 }
 
 

@@ -220,7 +220,7 @@ return new Blob([ia], {type:mimeString});
                 + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick(this);\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
-                + cat.id + "\"></div>" + "<div>" + details + "</div></div>";
+                + cat.id + "\"></div>" + "<div  id=\"name_" + cat.id + "\">" + details + "</div></div>";
          
            
           }

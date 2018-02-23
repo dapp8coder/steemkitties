@@ -85,6 +85,8 @@ function KittieClick(e){
 		if(Cookies.get('background')){
 			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src.toString());
 		}
+   id=\"" + cat.id + "\"
+  	Cookies.set('kittieName', $("#name_"+id)[0].innerText());
 		Cookies.set('id', id);
 }	
 
@@ -133,7 +135,9 @@ function compileAdventure(bg, cryptokittieIMG) {
 }
 
 function finishStory() { 
-$("textarea").val('![image.png]('+localStorage.getItem('savedImageData')+')');
+   var canvas = document.getElementById('preview_canvas');
+$(".Editor__title").val(Cookies.get('kittieName')+ ' Adventures on Steem');
+$("textarea").val('![image.png]('+canvas.toDataURL()+')');
 		$('.Editor0').hide();
 		$('.Editor').show();
 }

@@ -85,7 +85,7 @@ function KittieClick(e){
 		if(Cookies.get('background')){
 			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src.toString());
 		}
-  	Cookies.set('kittieName', $("#name_"+id).innerText());
+  	Cookies.set('kittieName', $("#name_"+id)[0].innerText.replace('\n', ''));
 		Cookies.set('id', id);
 }	
 
@@ -270,8 +270,8 @@ function insertImage(image, imageName = 'image') {
 
     const value = editor.val();
 
-    const startPos = this.input.selectionStart;
-    const endPos = this.input.selectionEnd;
+    const startPos = 0;
+    const endPos = 0;
     const imageText = '!['+imageName+']('+image+')\n';
     const newValue = value.substring(0, startPos)+imageText+value.substring(endPos, value.length,);
     //editor.resizeTextarea();

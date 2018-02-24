@@ -244,17 +244,18 @@ return new Blob([ia], {type:mimeString});
 
 
 handleImageUpload(blob, callback, errorCallback){
-      
-      var user = ;
+      	var user = $(".Topnav__user__username")[0].outerText;
+
+     
       const formData = new FormData();
       formData.append('files', blob);
 
-      fetch(`https://img.busy.org/@${user}/uploads`, {
+      fetch('https://img.busy.org/@'+user+'/uploads', {
         method: 'POST',
         body: formData,
       })
         .then(res => res.json())
-        .then(res => callback(res.secure_url, blob.name))
+        .then(res => callback(res.secure_url, 'image'))
         .catch(err => {
           console.log('err', err);
           errorCallback();

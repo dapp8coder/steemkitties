@@ -266,17 +266,14 @@ alert('invalid image');
 }
 function insertImage(image, imageName = 'image') {
    
-	const { this } = $('.EditorInput__dropzone-base textarea');
+	const editor = $('.EditorInput__dropzone-base textarea');
 
-    const { value } = $('.EditorInput__dropzone-base textarea').val();
+    const value = editor.val();
 
     const startPos = this.input.selectionStart;
     const endPos = this.input.selectionEnd;
-    const imageText = `![${imageName}](${image})\n`;
-    const newValue = `${value.substring(0, startPos)}${imageText}${value.substring(
-      endPos,
-      value.length,
-    )}`;
-    this.resizeTextarea();
-    this.setValue(newValue, startPos + imageText.length, startPos + imageText.length);
+    const imageText = '!['+imageName+']('+image+')\n';
+    const newValue = value.substring(0, startPos)+imageText+value.substring(endPos, value.length,);
+    //editor.resizeTextarea();
+    editor.val(newValue, startPos + imageText.length, startPos + imageText.length);
   }

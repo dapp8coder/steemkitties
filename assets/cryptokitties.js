@@ -1,3 +1,10 @@
+function valueChangeREACT(selector, value){
+var target = $(selector)[0]
+var event = document.createEvent("HTMLEvents");  
+$(selector).val(value)
+event.initEvent(selector, true, true);
+target.dispatchEvent(event);
+}
 var imgArray = new Array();
 
 imgArray[0] = new Image();
@@ -136,7 +143,10 @@ function compileAdventure(bg, cryptokittieIMG) {
 function finishStory() { 
    var canvas = document.getElementById('preview_canvas');
   handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
-$(".Editor__title").val(Cookies.get('kittieName')+ ' Adventures on Steem');
+  
+   valueChangeREACT('.Editor__title', Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
+ 
+//$(".Editor__title").val(Cookies.get('kittieName')+ ' Adventures on Steem');
 //$("textarea").val('![image.png]('+canvas.toDataURL()+')');
 		$('.Editor0').hide();
 		$('.Editor').show();
@@ -275,5 +285,6 @@ function insertImage(image, imageName = 'image') {
     const imageText = '!['+imageName+']('+image+')\n';
     const newValue = value.substring(0, startPos)+imageText+value.substring(endPos, value.length,);
     //editor.resizeTextarea();
-    editor.val(newValue, startPos + imageText.length, startPos + imageText.length);
+  valueChangeREACT('.EditorInput__dropzone-base textarea', newValue);
+    //editor.val(newValue, startPos + imageText.length, startPos + imageText.length);
   }

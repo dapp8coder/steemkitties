@@ -85,7 +85,7 @@ function KittieClick(e){
 		if(Cookies.get('background')){
 			compileAdventure(Cookies.get('background'),$("#image_"+id)[0].src.toString());
 		}
-  	Cookies.set('kittieName', $("#name_"+id)[0].innerText());
+  	Cookies.set('kittieName', $("#name_"+id).innerText());
 		Cookies.set('id', id);
 }	
 
@@ -135,8 +135,9 @@ function compileAdventure(bg, cryptokittieIMG) {
 
 function finishStory() { 
    var canvas = document.getElementById('preview_canvas');
+  handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
 $(".Editor__title").val(Cookies.get('kittieName')+ ' Adventures on Steem');
-$("textarea").val('![image.png]('+canvas.toDataURL()+')');
+//$("textarea").val('![image.png]('+canvas.toDataURL()+')');
 		$('.Editor0').hide();
 		$('.Editor').show();
 }
@@ -241,17 +242,40 @@ return new Blob([ia], {type:mimeString});
 }(jQuery));
 
 
-function loadKittieSvg(selector, url) {
-  var target = document.querySelector(selector);
 
-    // Request the SVG file
-    var ajax = new XMLHttpRequest();
-    ajax.open("GET", url , true);
-    ajax.send();
+handleImageUpload(blob, callback, errorCallback){
+      
+      var user = ;
+      const formData = new FormData();
+      formData.append('files', blob);
 
-    // Append the SVG to the target
-    ajax.onload = function(e) {
-      target.innerHTML = ajax.responseText;
-    }
-  
+      fetch(`https://img.busy.org/@${user}/uploads`, {
+        method: 'POST',
+        body: formData,
+      })
+        .then(res => res.json())
+        .then(res => callback(res.secure_url, blob.name))
+        .catch(err => {
+          console.log('err', err);
+          errorCallback();
+        });
 }
+imageInvalid(){
+alert('invalid image');
+}
+insertImage(image, imageName = 'image') {
+   
+	const { this } = $('.EditorInput__dropzone-base textarea');
+
+    const { value } = $('.EditorInput__dropzone-base textarea').val();
+
+    const startPos = this.input.selectionStart;
+    const endPos = this.input.selectionEnd;
+    const imageText = `![${imageName}](${image})\n`;
+    const newValue = `${value.substring(0, startPos)}${imageText}${value.substring(
+      endPos,
+      value.length,
+    )}`;
+    this.resizeTextarea();
+    this.setValue(newValue, startPos + imageText.length, startPos + imageText.length);
+  }

@@ -243,7 +243,7 @@ return new Blob([ia], {type:mimeString});
 
 
 
-handleImageUpload(blob, callback, errorCallback){
+function handleImageUpload(blob, callback, errorCallback){
       	var user = $(".Topnav__user__username")[0].outerText;
 
      
@@ -261,10 +261,10 @@ handleImageUpload(blob, callback, errorCallback){
           errorCallback();
         });
 }
-imageInvalid(){
+function imageInvalid(){
 alert('invalid image');
 }
-insertImage(image, imageName = 'image') {
+function insertImage(image, imageName = 'image') {
    
 	const { this } = $('.EditorInput__dropzone-base textarea');
 

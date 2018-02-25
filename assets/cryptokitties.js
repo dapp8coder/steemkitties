@@ -163,7 +163,7 @@ context.textBaseline = 'bottom';
   
   handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
  // let counter = window.localStorage.getItem("counter");
-window.localStorage.setItem("title ", Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
+window.localStorage.setItem('title', Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
    //valueChangeREACT('.Editor__title', );
  
 //$(".Editor__title").val(Cookies.get('kittieName')+ ' Adventures on Steem');

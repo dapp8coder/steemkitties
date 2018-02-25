@@ -136,6 +136,18 @@ function compileAdventure(bg, cryptokittieIMG) {
     
      img.onload = function () {
       ctx.drawImage(img, 130, 220, 300, 300);
+ctx.font = 'bold 25px Whitney, sans-serif';
+ctx.fillStyle = '#ffffff';
+ctx.fillText(Cookies.get('kittieName') + ' #'+Cookies.get('id'), 30, 580);
+ctx.strokeStyle = 'black';
+ctx.strokeText(Cookies.get('kittieName')+ ' #'+Cookies.get('id'),30, 580);
+
+ctx.fillStyle = '#ffffff';
+ctx.fillText('SteemKitties', 610, 580);
+ctx.strokeStyle = 'black';
+ctx.strokeText('SteemKitties',610, 580);
+ctx.textBaseline = 'bottom'
+
 	  localStorage.setItem( "savedImageData", canvas.toDataURL() );
     }
 	
@@ -145,22 +157,7 @@ function compileAdventure(bg, cryptokittieIMG) {
 
 function finishStory() { 
   var canvas = document.getElementById('preview_canvas');
-if (canvas.getContext) {
-  var context = canvas.getContext('2d');
-}
-context.font = 'bold 25px Whitney, sans-serif';
-context.fillStyle = '#ffffff';
-context.fillText(Cookies.get('kittieName') + ' #'+Cookies.get('id'), 30, 580);
-context.strokeStyle = 'black';
-context.strokeText(Cookies.get('kittieName')+ ' #'+Cookies.get('id'),30, 580);
 
-context.fillStyle = '#ffffff';
-context.fillText('SteemKitties', 610, 580);
-context.strokeStyle = 'black';
-context.strokeText('SteemKitties',610, 580);
-context.textBaseline = 'bottom';
-  
-  
   handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
  // let counter = window.localStorage.getItem("counter");
 window.localStorage.setItem('title', Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
@@ -274,6 +271,7 @@ return new Blob([ia], {type:mimeString});
 
 
 function handleImageUpload(blob, callback, errorCallback){
+  $('.waiting').show();
       	var user = $(".Topnav__user__username")[0].innerText;
 
      
@@ -306,5 +304,6 @@ function insertImage(image, imageName = 'image') {
     const newValue = imageText+value;
     //editor.resizeTextarea();
   valueChangeREACT('.EditorInput__dropzone-base textarea', newValue);
+$('.waiting').hide();
     //editor.val(newValue, startPos + imageText.length, startPos + imageText.length);
   }

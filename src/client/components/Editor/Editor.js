@@ -135,6 +135,11 @@ class Editor extends React.Component {
       reward = post.reward;
     }
 
+if (post.title == ''){
+      let title = window.localStorage.getItem("title");
+      post.title =  title;
+    }
+
     this.props.form.setFieldsValue({
       title: post.title,
       topics: post.topics,
@@ -158,10 +163,6 @@ class Editor extends React.Component {
     if (Object.values(form.getFieldsError()).filter(e => e).length > 0) return;
 
     const values = form.getFieldsValue();
-    if (!values.title){
-      let title = window.localStorage.getItem("title");
-      this.setState("title", title);
-    }
     
     
     this.setBodyAndRender(values.body);

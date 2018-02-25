@@ -148,8 +148,12 @@ function finishStory() {
 if (canvas.getContext) {
   var context = canvas.getContext('2d');
 }
-
 context.font = 'bold 25px Whitney, sans-serif';
+context.fillStyle = '#ffffff';
+context.fillText(Cookies.get('kittieName') + ' #'+Cookies.get('id'), 30, 580);
+context.strokeStyle = 'black';
+context.strokeText(Cookies.get('kittieName')+ ' #'+Cookies.get('id'),30, 580);
+
 context.fillStyle = '#ffffff';
 context.fillText('SteemKitties', 610, 580);
 context.strokeStyle = 'black';

@@ -158,7 +158,12 @@ class Editor extends React.Component {
     if (Object.values(form.getFieldsError()).filter(e => e).length > 0) return;
 
     const values = form.getFieldsValue();
-
+    if (!values.title){
+      let title = window.localStorage.getItem("title");
+      this.setState("title", title);
+    }
+    
+    
     this.setBodyAndRender(values.body);
     this.props.onUpdate(values);
   }
@@ -188,9 +193,7 @@ class Editor extends React.Component {
     return (
 	<div>
 	<div className="waiting"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div>
-	<div className="Editor0" ref={title => {
-                this.data-title = title;
-              }}></div>
+	<div className="Editor0"></div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>
           <title>

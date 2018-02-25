@@ -1,9 +1,15 @@
-function valueChangeREACT(selector, value){
+function valueChangeREACT(selector, svalue){
+var ev2 = new Event('input', { bubbles: true});
+ev2.simulated = true;
+document.querySelector(selector).value = svalue;
+document.querySelector(selector).dispatchEvent(ev2);
+/*
 var target = $(selector)[0]
 var event = document.createEvent("HTMLEvents");  
-$(selector).val(value)
+$(selector).val(svalue)
 event.initEvent(selector, true, true);
 target.dispatchEvent(event);
+*/
 }
 var imgArray = new Array();
 
@@ -161,7 +167,7 @@ function finishStory() {
   handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
  // let counter = window.localStorage.getItem("counter");
 window.localStorage.setItem('title', Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
-   //valueChangeREACT('.Editor__title', );
+   valueChangeREACT('.Editor__title',  Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
  
 //$(".Editor__title").val(Cookies.get('kittieName')+ ' Adventures on Steem');
 //$("textarea").val('![image.png]('+canvas.toDataURL()+')');

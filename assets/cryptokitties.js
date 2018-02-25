@@ -144,7 +144,19 @@ function compileAdventure(bg, cryptokittieIMG) {
 }
 
 function finishStory() { 
-   var canvas = document.getElementById('preview_canvas');
+  var canvas = document.getElementById('preview_canvas');
+if (canvas.getContext) {
+  var context = canvas.getContext('2d');
+}
+
+context.font = 'bold 25px Whitney, sans-serif';
+context.fillStyle = '#ffffff';
+context.fillText('SteemKitties', 610, 580);
+context.strokeStyle = 'black';
+context.strokeText('SteemKitties',610, 580);
+context.textBaseline = 'bottom';
+  
+  
   handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
   
    valueChangeREACT('.Editor__title', Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');

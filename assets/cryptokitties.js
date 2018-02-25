@@ -69,7 +69,7 @@ function adventureForm(){
 	imgList += "</div></div>";
 	 $("#backgrounds").html(imgList);
 	
-	var user = $(".Topnav__user__username")[0].outerText;
+	var user = $(".Topnav__user__username")[0].innerText;
 		//setTimeout(function(){
 	renderUserCryptokitties(user);
 	//}, 1000);
@@ -274,7 +274,7 @@ return new Blob([ia], {type:mimeString});
 
 
 function handleImageUpload(blob, callback, errorCallback){
-      	var user = $(".Topnav__user__username")[0].outerText;
+      	var user = $(".Topnav__user__username")[0].innerText;
 
      
       const formData = new FormData();

@@ -79,7 +79,14 @@ class Editor extends React.Component {
     this.state = {
       bodyHTML: '',
     };
-
+    
+if (this.props.form == ''){
+     // let title = window.localStorage.getItem("title");
+     // post.title =  title;
+   
+    this.props.form.setFieldsValue({
+      title: window.localStorage.getItem("title")  });
+   }
     this.onUpdate = this.onUpdate.bind(this);
     this.setValues = this.setValues.bind(this);
     this.setBodyAndRender = this.setBodyAndRender.bind(this);
@@ -134,12 +141,6 @@ class Editor extends React.Component {
     ) {
       reward = post.reward;
     }
-
-if (post.title == ''){
-      let title = window.localStorage.getItem("title");
-      post.title =  title;
-    }
-
     this.props.form.setFieldsValue({
       title: post.title,
       topics: post.topics,

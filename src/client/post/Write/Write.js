@@ -132,9 +132,9 @@ class Write extends React.Component {
       this.draftId = uuidv4();
       var kittieID = Cookies.get('Kittie');
       this.setState({
-        initialTitle: Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!',
-        initialTopics: ['steemkitties','meow','cryptokitties', 'steemkitties-'+kittieID],
-        initialBody: '/n'+'### Meow, Catch More of My [Adventures](https://steemkitties.com/created/steemkitties-'+kittieID+') and My CryptoKitties Profile Page [Here](https://www.cryptokitties.co/kitty/'+kittieID+').',
+         initialTitle: '',		
+         initialTopics: [],
+         initialBody: '',  
         initialReward: rewardsValues.half,
         initialUpvote: true,
         initialUpdatedDate: Date.now(),

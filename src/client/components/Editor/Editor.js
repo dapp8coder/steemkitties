@@ -79,18 +79,7 @@ class Editor extends React.Component {
     this.state = {
       bodyHTML: '',
     };
-     if(window.localStorage.getItem('transfer') !== ''){
-      if(props.title == ''){
-        props.title = window.localStorage.getItem('title');
-      }
-      if(props.body == ''){
-        props.body = window.localStorage.getItem('body');
-      }
-     if(props.topics == ''){
-        props.topics = ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'];
-      }
-      window.localStorage.setItem('transfer', '');
-    }
+   
     this.onUpdate = this.onUpdate.bind(this);
     this.setValues = this.setValues.bind(this);
     this.setBodyAndRender = this.setBodyAndRender.bind(this);

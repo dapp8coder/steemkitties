@@ -91,11 +91,8 @@ class Editor extends React.Component {
     //this.state = { hasMounted: false };
   }
 handleChange(event) {
-    //this.setState({title: event.target.value});
-  this.props.form.setFieldsValue({
-      title: event.target.value
-    });
-
+    this.setState({title: event.target.value});
+  
   }
   componentDidMount() {
   //  this.setValues(this.props);

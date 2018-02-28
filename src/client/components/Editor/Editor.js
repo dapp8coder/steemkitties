@@ -86,14 +86,10 @@ class Editor extends React.Component {
     this.throttledUpdate = this.throttledUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
  //super(props);
     //this.state = { hasMounted: false };
   }
-handleChange(event) {
-    this.setState({title: event.target.value});
-  
-  }
+
   componentDidMount() {
   //  this.setValues(this.props);
   //this.setState({ hasMounted: true });
@@ -198,7 +194,7 @@ handleChange(event) {
     return (
 	<div>
 	<div className="waiting"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div>
-        <input type="text" id="mytitle" value={this.props.title} onChange={this.handleChange} />
+        
 	<div className="Editor0"></div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>

@@ -167,12 +167,13 @@ function finishStory() {
   handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
  // let counter = window.localStorage.getItem("counter");
 window.localStorage.setItem('title', Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
-   valueChangeREACT('.Editor__title',  Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
+//   valueChangeREACT('.Editor__title',  Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
  
 //$(".Editor__title").val(Cookies.get('kittieName')+ ' Adventures on Steem');
 //$("textarea").val('![image.png]('+canvas.toDataURL()+')');
-		$('.Editor0').hide();
-		$('.Editor').show();
+
+ 
+
 }
 
 
@@ -313,5 +314,7 @@ function insertImage(image, imageName = 'image') {
 
 window.localStorage.setItem('body', newValue+ '> Adventures on Steem, MEOW!!\n\nCatch More of [My Adventures](http://steemkitties.com/trending/steemkitties-'+Cookies.get('id')+'), Like I Catch Mice and [My CryptoKitties Profile Page](https://www.cryptokitties.co/kitty/'+Cookies.get('id')+').\n\n### [Create Your Own Adventures!!, MEOW!](https://steemkitties.com)');
 $('.waiting').hide();
-    //editor.val(newValue, startPos + imageText.length, startPos + imageText.length);
+  window.localStorage.setItem('transfer', 'ready');
+  $('.Editor0').hide();
+		$('.Editor').show();   //editor.val(newValue, startPos + imageText.length, startPos + imageText.length);
   }

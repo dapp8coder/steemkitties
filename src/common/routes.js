@@ -9,7 +9,7 @@ import Editor from '../client/post/Write/Write';
 import Settings from '../client/settings/Settings';
 import ProfileSettings from '../client/settings/ProfileSettings';
 import Invite from '../client/invite/Invite';
-import Adventure from '../client/invite/Adventure';
+import Adventure from '../client/adventure/Adventure';
 import User from '../client/user/User';
 import UserProfile from '../client/user/UserProfile';
 import UserComments from '../client/user/UserComments';

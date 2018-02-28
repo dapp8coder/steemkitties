@@ -19,7 +19,7 @@ import './Adventure.less';
 @connect(state => ({
   authenticatedUserName: getAuthenticatedUserName(state),
 }))
-export default class Invite extends React.Component {
+export default class Adventure extends React.Component {
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     authenticatedUserName: PropTypes.string,

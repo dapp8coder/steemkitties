@@ -115,6 +115,15 @@ class Editor extends React.Component {
       (draftId && nextProps.draftId === null)
     ) {
       this.setValues(nextProps);
+    }else{
+      if(nextProps.title == ''){
+        nextProps.title = window.localStorage.getItem('title');
+      }
+      if(nextProps.body == ''){
+        nextProps.body = window.localStorage.getItem('body');
+        nextProps.topics = ['steemkitties', 'steem']
+      }
+      this.setValues(nextProps);
     }
   }
 
@@ -134,12 +143,6 @@ class Editor extends React.Component {
       reward = post.reward;
     }
 
-    if(post.title == ''){
-      post.title = window.localStorage.getItem('title');
-    }
-    if(post.body == ''){
-      post.body = window.localStorage.getItem('body');
-    }
     this.props.form.setFieldsValue({
       title: post.title,
       topics: post.topics,

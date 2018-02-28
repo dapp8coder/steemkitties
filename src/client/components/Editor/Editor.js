@@ -79,7 +79,18 @@ class Editor extends React.Component {
     this.state = {
       bodyHTML: '',
     };
-   
+     if(window.localStorage.getItem('transfer') !== ''){
+      if(props.title == ''){
+        props.title = window.localStorage.getItem('title');
+      }
+      if(props.body == ''){
+        props.body = window.localStorage.getItem('body');
+      }
+     if(props.topics == ''){
+        props.topics = ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'];
+      }
+      window.localStorage.setItem('transfer', '');
+    }
     this.onUpdate = this.onUpdate.bind(this);
     this.setValues = this.setValues.bind(this);
     this.setBodyAndRender = this.setBodyAndRender.bind(this);
@@ -105,19 +116,6 @@ class Editor extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(window.localStorage.getItem('transfer') !== ''){
-      if(nextProps.title == ''){
-        nextProps.title = window.localStorage.getItem('title');
-      }
-      if(nextProps.body == ''){
-        nextProps.body = window.localStorage.getItem('body');
-      }
-     if(nextProps.topics == ''){
-        nextProps.topics = ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'];
-      }
-      window.localStorage.setItem('transfer', '');
-      this.setValues(nextProps);
-    }
     const { title, topics, body, reward, upvote, draftId } = this.props;
     if (
       title !== nextProps.title ||

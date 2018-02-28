@@ -309,7 +309,9 @@ function insertImage(image, imageName = 'image') {
     const imageText = '!['+imageName+']('+image+')\n';
     const newValue = imageText+value;
     //editor.resizeTextarea();
-  valueChangeREACT('.EditorInput__dropzone-base textarea', newValue);
+ // valueChangeREACT('.EditorInput__dropzone-base textarea', newValue);
+
+window.localStorage.setItem('body', newValue+ '> Adventures on Steem, MEOW!!\n\nCatch More of [My Adventures](http://steemkitties.com/trending/steemkitties-'+Cookies.get('id')+'), Like I Catch Mice and [My CryptoKitties Profile Page](https://www.cryptokitties.co/kitty/'+Cookies.get('id')+').\n\n### [Create Your Own Adventures!!, MEOW!](https://steemkitties.com)');
 $('.waiting').hide();
     //editor.val(newValue, startPos + imageText.length, startPos + imageText.length);
   }

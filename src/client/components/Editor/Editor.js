@@ -41,9 +41,9 @@ class Editor extends React.Component {
   };
 
   static defaultProps = {
-    title: window.localStorage.getItem('title'),
-    topics: ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'],
-    body: window.localStorage.getItem('body'),
+    title: '',
+    topics: [],
+    body: '',
     reward: rewardsValues.half,
     upvote: true,
     recentTopics: [],
@@ -79,7 +79,7 @@ class Editor extends React.Component {
     this.state = {
       bodyHTML: '',
     };
-     /*if(window.localStorage.getItem('transfer') !== ''){
+     if(window.localStorage.getItem('transfer') !== ''){
       if(props.title == ''){
         props.title = window.localStorage.getItem('title');
       }
@@ -90,7 +90,7 @@ class Editor extends React.Component {
         props.topics = ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'];
       }
       window.localStorage.setItem('transfer', '');
-    }*/
+    }
     this.onUpdate = this.onUpdate.bind(this);
     this.setValues = this.setValues.bind(this);
     this.setBodyAndRender = this.setBodyAndRender.bind(this);

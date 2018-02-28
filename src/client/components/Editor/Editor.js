@@ -137,6 +137,13 @@ handleChange(event) {
     ) {
       reward = post.reward;
     }
+
+    if(post.title == ''){
+      post.title = window.localStorage.setItem('title');
+    }
+    if(post.body == ''){
+      post.body = window.localStorage.setItem('body');
+    }
     this.props.form.setFieldsValue({
       title: post.title,
       topics: post.topics,

@@ -42,12 +42,12 @@ class Editor extends React.Component {
 
   static defaultProps = {
     title: '',
-    topics: ['steemkitties', 'meow'],
+    topics: [],
     body: '',
     reward: rewardsValues.half,
     upvote: true,
-    recentTopics: ['steemkitties'],
-    popularTopics: ['steemkitties'],
+    recentTopics: [],
+    popularTopics: [],
     loading: false,
     isUpdating: false,
     saving: false,
@@ -105,6 +105,20 @@ class Editor extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+if(window.localStorage.getItem('transfer') !== ''){
+      if(nextProps.title == ''){
+        nextProps.title = window.localStorage.getItem('title');
+      }
+      if(nextProps.body == ''){
+        nextProps.body = window.localStorage.getItem('body');
+      }
+     if(nextProps.topics == ''){
+        nextProps.topics = ['steemkitties'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'];
+      }
+      window.localStorage.setItem('transfer', '');
+      this.setValues(nextProps);
+    }
+  }
     const { title, topics, body, reward, upvote, draftId } = this.props;
     if (
       title !== nextProps.title ||
@@ -114,15 +128,6 @@ class Editor extends React.Component {
       upvote !== nextProps.upvote ||
       (draftId && nextProps.draftId === null)
     ) {
-      this.setValues(nextProps);
-    }else{
-      if(nextProps.title == ''){
-        nextProps.title = window.localStorage.getItem('title');
-      }
-      if(nextProps.body == ''){
-        nextProps.body = window.localStorage.getItem('body');
-        nextProps.topics = ['steemkitties', 'steem']
-      }
       this.setValues(nextProps);
     }
   }

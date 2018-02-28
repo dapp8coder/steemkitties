@@ -103,6 +103,8 @@ function KittieClick(e){
 		}
   	Cookies.set('kittieName', $("#name_"+id)[0].innerText.replace('\n', ''));
 		Cookies.set('id', id);
+    window.localStorage.setItem('id', id);
+ 
 }	
 
 function BackgroundClick(src, e){

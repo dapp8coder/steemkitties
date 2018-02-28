@@ -86,7 +86,7 @@ class Editor extends React.Component {
     this.throttledUpdate = this.throttledUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.handleChange = this.handleChange.bind(this);
  //super(props);
     //this.state = { hasMounted: false };
   }

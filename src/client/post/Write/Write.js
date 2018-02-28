@@ -79,9 +79,9 @@ class Write extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialTitle: window.localStorage.getItem('title'),
-      initialTopics: ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'],
-      initialBody: window.localStorage.getItem('body'),
+       initialTitle: '',
+      initialTopics: [],
+      initialBody: '',
       initialReward: this.props.rewardSetting,
       initialUpvote: this.props.upvoteSetting,
       initialUpdatedDate: Date.now(),
@@ -119,7 +119,12 @@ class Write extends React.Component {
         isUpdating: draftPost.isUpdating || false,
       });
     }
-
+  
+   this.setState({
+        initialTitle: window.localStorage.getItem('title'),
+        initialTopics: ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'],
+        initialBody: window.localStorage.getItem('body'),
+      });
     if (draftId) {
       this.draftId = draftId;
     } else {

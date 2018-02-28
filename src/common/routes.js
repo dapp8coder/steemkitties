@@ -9,6 +9,7 @@ import Editor from '../client/post/Write/Write';
 import Settings from '../client/settings/Settings';
 import ProfileSettings from '../client/settings/ProfileSettings';
 import Invite from '../client/invite/Invite';
+import Adventure from '../client/invite/Adventure';
 import User from '../client/user/User';
 import UserProfile from '../client/user/UserProfile';
 import UserComments from '../client/user/UserComments';
@@ -71,6 +72,11 @@ const routes = [
         path: '/invite',
         exact: true,
         component: Invite,
+      },
+       {
+        path: '/adventure',
+        exact: true,
+        component: Adventure,
       },
       {
         path: '/@:name/(comments|followers|followed|reblogs|feed|transfers|activity)?',

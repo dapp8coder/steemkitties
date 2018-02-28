@@ -79,9 +79,9 @@ class Write extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialTitle: '',
-      initialTopics: [],
-      initialBody: '',
+      initialTitle: window.localStorage.getItem('title'),
+      initialTopics: ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'],
+      initialBody: window.localStorage.getItem('body'),
       initialReward: this.props.rewardSetting,
       initialUpvote: this.props.upvoteSetting,
       initialUpdatedDate: Date.now(),

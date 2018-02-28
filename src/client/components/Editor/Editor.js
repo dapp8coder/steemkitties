@@ -105,7 +105,7 @@ class Editor extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-if(window.localStorage.getItem('transfer') !== ''){
+    if(window.localStorage.getItem('transfer') !== ''){
       if(nextProps.title == ''){
         nextProps.title = window.localStorage.getItem('title');
       }
@@ -113,12 +113,11 @@ if(window.localStorage.getItem('transfer') !== ''){
         nextProps.body = window.localStorage.getItem('body');
       }
      if(nextProps.topics == ''){
-        nextProps.topics = ['steemkitties'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'];
+        nextProps.topics = ['steemkitties-'+window.localStorage.getItem('id'), 'steem', 'meow', 'cryptokitties', 'steemkitties'];
       }
       window.localStorage.setItem('transfer', '');
       this.setValues(nextProps);
     }
-  }
     const { title, topics, body, reward, upvote, draftId } = this.props;
     if (
       title !== nextProps.title ||

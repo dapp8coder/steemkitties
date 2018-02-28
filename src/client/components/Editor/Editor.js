@@ -135,10 +135,10 @@ class Editor extends React.Component {
     }
 
     if(post.title == ''){
-      post.title = window.localStorage.setItem('title');
+      post.title = window.localStorage.getItem('title');
     }
     if(post.body == ''){
-      post.body = window.localStorage.setItem('body');
+      post.body = window.localStorage.getItem('body');
     }
     this.props.form.setFieldsValue({
       title: post.title,

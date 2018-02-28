@@ -90,7 +90,13 @@ class Editor extends React.Component {
  //super(props);
     //this.state = { hasMounted: false };
   }
+handleChange(event) {
+    //this.setState({title: event.target.value});
+  this.props.form.setFieldsValue({
+      title: event.target.value
+    });
 
+  }
   componentDidMount() {
   //  this.setValues(this.props);
   //this.setState({ hasMounted: true });
@@ -188,6 +194,7 @@ class Editor extends React.Component {
     return (
 	<div>
 	<div className="waiting"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div>
+        <input type="text" id="mytitle" value={this.props.title} onChange={this.handleChange} />
 	<div className="Editor0"></div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>

@@ -70,16 +70,11 @@ export default class Adventure extends React.Component {
           <title>{intl.formatMessage({ id: 'adventure', defaultMessage: 'Start Your Adventure' })} - SteemKitties</title>
         </Helmet>
         <div className="settings-layout container">
-          <Affix className="leftContainer" stickPosition={77}>
-            <div className="left">
-              <LeftSidebar />
-            </div>
-          </Affix>
-          <div className="center">
+          	<div className="waiting"><img src="/images/wait.gif" /><h2>Meow, Please wait...</h2></div>       
             <div className="Adventure">
               
             </div>
-          </div>
+        
         </div>
       </div>
     );

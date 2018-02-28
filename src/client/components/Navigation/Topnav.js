@@ -113,7 +113,7 @@ class Topnav extends React.Component {
               placement="bottom"
               title={intl.formatMessage({ id: 'write_post', defaultMessage: 'Write post' })}
             >
-              <Link to="/editor" className="Topnav__link">
+              <Link to="/adventure" className="Topnav__link">
                 <i className="iconfont icon-write" />
               </Link>
             </Tooltip>

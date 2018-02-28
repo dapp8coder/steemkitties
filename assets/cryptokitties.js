@@ -54,6 +54,7 @@ var cryptokittie = "";
 var writeHTML = "";
 
 function adventureForm(){
+$(".wait").show();
   Cookies.set('background', '');
   	Cookies.set('kittieName', '');
 		Cookies.set('id', '');
@@ -80,7 +81,7 @@ function adventureForm(){
 	renderUserCryptokitties(user);
 	//}, 1000);
 
-
+$(".wait").hide();
 }
 
 
@@ -292,5 +293,5 @@ function insertImage(image, imageName = 'image') {
     window.localStorage.setItem('body', newValue+ '> Adventures on Steem, MEOW!!\n\nCatch More of [My Adventures](http://steemkitties.com/trending/steemkitties-'+Cookies.get('id')+'), Like I Catch Mice and [My CryptoKitties Profile Page](https://www.cryptokitties.co/kitty/'+Cookies.get('id')+').\n\n### [Create Your Own Adventures!!, MEOW!](https://steemkitties.com)');
  
     window.localStorage.setItem('transfer', 'ready');
-    window.location.href = '/write';
+    window.location.href = '/editor';
   }

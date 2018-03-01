@@ -81,14 +81,14 @@ $(".wait").show();
 	renderUserCryptokitties(user);
 	//}, 1000);
 
-$(".wait").hide();
+//$(".wait").hide();
 }
 
 
 $(document).ready(function() {	
 setTimeout(function(){
 	adventureForm();
- }, 4000);
+ }, 500);
 });
 
 
@@ -120,6 +120,7 @@ function BackgroundClick(src, e){
 
 }	
 function compileAdventure(bg, cryptokittieIMG) {
+  
 	 var canvas = document.getElementById('preview_canvas');
 	 canvas.width = 800;
 	 canvas.height = 600;
@@ -141,7 +142,8 @@ function compileAdventure(bg, cryptokittieIMG) {
 	
     var img = new Image();
     img.crossOrigin = "Anonymous";
-    img.src = 'https://img.steemkitties.com/index.php?svg='+cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
+    img.src = cryptokittieIMG;
+  //'https://img.steemkitties.com/index.php?svg='+cryptokittieIMG.replace('https://storage.googleapis.com/ck-kitty-image/','');
 
     img.onload = function () {
     ctx.drawImage(img, 130, 220, 300, 300);
@@ -163,8 +165,19 @@ function compileAdventure(bg, cryptokittieIMG) {
 	
 	
 }
-
+$(window).scroll(function() {
+    var y = $(".waiting").offset().top;
+    var scrollY = $(window).scrollTop();
+    if (scrollY > y) {
+        var padY = scrollY - y;
+        $(".waiting").css("paddingTop", padY);
+    }
+});
 function finishStory() { 
+ $('.Action').attr("disabled", "disabled");
+  $('.Action').innerText = "Meow, Hold On!!";
+  $('.waiting').show();
+  
   var canvas = document.getElementById('preview_canvas');
   window.localStorage.setItem('title', Cookies.get('kittieName')+ ' Adventures on Steem, MEOW!!');
   handleImageUpload(postCanvasToURL(canvas),insertImage, imageInvalid);
@@ -191,10 +204,11 @@ for (var i = 0; i < byteString.length; i++) {
 return new Blob([ia], {type:mimeString});
 }
 
-	
+var img = new Array();	
 	
 	(function($) {
     $.fn.cryptoCase = function(address) {
+      $(".wait").show();
 		if (!address) {alert("Edit Your Profile and Set Your CryptoKitties Address.");
 		return;}
       const URL = 'https://api.cryptokitties.co/kitties?owner_wallet_address='
@@ -230,6 +244,8 @@ return new Blob([ia], {type:mimeString});
             max = response.total;
          console.log(max);
          
+         
+
           for (i = 0; i < max; i++) {
             var cat = response.kitties[i];
             var details = "";
@@ -242,9 +258,12 @@ return new Blob([ia], {type:mimeString});
               details += "<span class=\"details\"> &#xB7; Fancy<\/span>";
             }*/
               details += "<\/div>";
-           
+        img[cat.id] = new Image();   
+    img[cat.id].crossOrigin = "Anonymous";
+    img[cat.id].src = 'https://img.steemkitties.com/index.php?svg='+cat.image_url.replace('https://storage.googleapis.com/ck-kitty-image/','');
+
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick(this);\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
+                + "<div class=\"kittyCard\" id=\"" + img[cat.id].src + "\" onclick=\"KittieClick(this);\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
                 + "<img class=\""
                 + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
                 + cat.id + "\"></div>" + "<div  id=\"name_" + cat.id + "\">" + details + "</div></div>";
@@ -261,7 +280,7 @@ return new Blob([ia], {type:mimeString});
         }
       });
     };
-	
+	  
 }(jQuery));
 
 

@@ -43,7 +43,7 @@ const getUserCryptokitties = async (user) => {
 
 const renderUserCryptokitties = async (user) => {
 	var cryptokitties = Cookies.get('cryptokitties'); 
-	if(!cryptokitties){
+	if(!cryptokitties == ''){
 		$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
 	}else{
 		$('#cryptokitties').cryptoCase(cryptokitties);
@@ -88,7 +88,7 @@ $(".wait").show();
 $(document).ready(function() {	
 setTimeout(function(){
 	adventureForm();
- }, 500);
+ }, 2000);
 });
 
 

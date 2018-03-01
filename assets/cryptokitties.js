@@ -165,14 +165,7 @@ function compileAdventure(bg, cryptokittieIMG) {
 	
 	
 }
-$(window).scroll(function() {
-    var y = $(".waiting").offset().top;
-    var scrollY = $(window).scrollTop();
-    if (scrollY > y) {
-        var padY = scrollY - y;
-        $(".waiting").css("paddingTop", padY);
-    }
-});
+
 function finishStory() { 
  $('.Action').attr("disabled", "disabled");
   $('.Action').innerText = "Meow, Hold On!!";

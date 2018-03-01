@@ -42,12 +42,12 @@ const getUserCryptokitties = async (user) => {
 };
 
 const renderUserCryptokitties = async (user) => {
-	var cryptokitties = Cookies.get('cryptokitties'); 
-	if(!cryptokitties == ''){
+//	var cryptokitties = Cookies.get('cryptokitties'); 
+//	if(!cryptokitties == ''){
 		$('#cryptokitties').cryptoCase(await getUserCryptokitties(user));
-	}else{
-		$('#cryptokitties').cryptoCase(cryptokitties);
-	}
+//	}else{
+//		$('#cryptokitties').cryptoCase(cryptokitties);
+//	}
 };
 
 var cryptokittie = "";

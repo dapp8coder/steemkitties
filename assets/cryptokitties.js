@@ -203,6 +203,7 @@ var img = new Array();
     $.fn.cryptoCase = function(address) {
       $(".wait").show();
 		if (!address) {alert("Edit Your Profile and Set Your CryptoKitties Address.");
+                   location.href = '/edit-profile';
 		return;}
       const URL = 'https://api.cryptokitties.co/kitties?owner_wallet_address='
           + address;

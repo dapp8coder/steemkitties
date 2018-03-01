@@ -256,9 +256,9 @@ var img = new Array();
     img[cat.id].src = 'https://img.steemkitties.com/index.php?svg='+cat.image_url.replace('https://storage.googleapis.com/ck-kitty-image/','');
 
             cats += "<div class=\"col-sm-6 col-md-3\" align=\"center\">"
-                + "<div class=\"kittyCard\" id=\"" + img[cat.id].src + "\" onclick=\"KittieClick(this);\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
+                + "<div class=\"kittyCard\" id=\"" + cat.id + "\" onclick=\"KittieClick(this);\" style=\"background-color:"+COLORS[cat.color]+";border-radius:5px;\">"
                 + "<img class=\""
-                + "image img-responsive\" src=" + cat.image_url + " id=\"image_"
+                + "image img-responsive\" src=" + img[cat.id].src + " id=\"image_"
                 + cat.id + "\"></div>" + "<div  id=\"name_" + cat.id + "\">" + details + "</div></div>";
          
            

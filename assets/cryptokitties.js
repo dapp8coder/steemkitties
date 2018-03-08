@@ -89,6 +89,12 @@ $(document).ready(function() {
 setTimeout(function(){
 	adventureForm();
  }, 2000);
+
+setTimeout(function(){
+if($(".kittyCard").length == 0){
+  	adventureForm();
+}
+}, 5000);
 });
 
 

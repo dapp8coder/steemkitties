@@ -90,14 +90,14 @@ setTimeout(function(){
 	adventureForm();
  }, 2000);
 
+
+});
+
 setTimeout(function(){
 if($(".kittyCard").length == 0){
   	adventureForm();
 }
-}, 5000);
-});
-
-
+}, 8000);
 
 function KittieClick(e){
 
